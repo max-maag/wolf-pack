@@ -1,3 +1,4 @@
+  foo
 window.onload = ->
   stage = new PIXI.Stage 0xFFFFFF
   renderer = PIXI.autoDetectRenderer(
