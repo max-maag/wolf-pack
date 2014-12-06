@@ -22,7 +22,7 @@ window.onload = ->
 
   #gameContainer = new PIXI.SpriteBatch()
 
-  stage.addChild gameContainer
+  #stage.addChild gameContainer
 
   document.body.appendChild renderer.view
 
@@ -33,8 +33,8 @@ window.onload = ->
 
   playerSprite = PIXI.Sprite.fromImage 'img/animalTex.png'
   playerSprite.tint = 0xcccccc
-  playerSprite.scale = new PIXI.Point 20/82, 20/82
-  
+  #playerSprite.scale = new PIXI.Point 20/82, 20/82
+
   stage.addChild playerSprite
 
   processInput = ->
