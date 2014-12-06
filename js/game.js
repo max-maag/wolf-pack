@@ -2,7 +2,7 @@
 (function() {
   window.onload = function() {
     var gameContainer, lastFrame, loader, playerSprite, processInput, render, renderer, stage, step, stillRendering, update;
-    stage = new PIXI.Stage(0xFFFFFF);
+    stage = new PIXI.Stage(0xcccccc);
     renderer = PIXI.autoDetectRenderer(Math.max(document.documentElement['clientWidth'], document.body['scrollWidth'], document.documentElement['scrollWidth'], document.body['offsetWidth'], document.documentElement['offsetWidth']), Math.max(document.documentElement['clientHeight'], document.body['scrollHeight'], document.documentElement['scrollHeight'], document.body['offsetHeight'], document.documentElement['offsetHeight']));
     loader = new PIXI.AssetLoader(['img/animalTex.png']);
     gameContainer = new PIXI.SpriteBatch();
