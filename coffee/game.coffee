@@ -32,8 +32,8 @@ window.onload = ->
 
 
   playerSprite = PIXI.Sprite.fromImage 'img/animalTex.png'
+  playerSprite.tint = 0xFF0000
   gameContainer.addChild playerSprite
-
 
   processInput = ->
     #TODO
@@ -58,7 +58,6 @@ window.onload = ->
 
 
   loader.onComplete = ->
-    alert 'loader complete'
     step()
 
 

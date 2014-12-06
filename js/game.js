@@ -11,6 +11,7 @@
     stillRendering = false;
     lastFrame = -1;
     playerSprite = PIXI.Sprite.fromImage('img/animalTex.png');
+    playerSprite.tint = 0xFF0000;
     gameContainer.addChild(playerSprite);
     processInput = function() {};
     update = function() {};
@@ -28,7 +29,6 @@
       return render();
     };
     loader.onComplete = function() {
-      alert('loader complete');
       return step();
     };
     return loader.load();
