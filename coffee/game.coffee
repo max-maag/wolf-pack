@@ -1,5 +1,5 @@
 window.onload = ->
-  stage = new PIXI.Stage 0xffffffff
+  stage = new PIXI.Stage 0xFFFFFF
   renderer = PIXI.autoDetectRenderer(
     Math.max(
       document.documentElement["clientWidth"]
