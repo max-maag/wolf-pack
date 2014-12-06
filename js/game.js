@@ -10,6 +10,7 @@
     lastFrame = -1;
     playerSprite = PIXI.Sprite.fromImage('img/animalTex.png');
     playerSprite.tint = 0xcccccc;
+    playerSprite.scale = new PIXI.Point(20.0 / 82.0, 20.0 / 82.0);
     stage.addChild(playerSprite);
     processInput = function() {};
     update = function() {};
