@@ -18,7 +18,7 @@
     };
     loader.onComplete = function() {
       alert("loader complete");
-      return window.setIntervall(function() {
+      return setInterval(function() {
         return requestAnimFrame(render);
       }, 16.6666);
     };

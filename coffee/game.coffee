@@ -37,7 +37,7 @@ window.onload = ->
 
   loader.onComplete = ->
     alert "loader complete"
-    window.setIntervall(
+    setInterval(
       ->
         requestAnimFrame render
 
