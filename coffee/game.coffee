@@ -26,12 +26,23 @@ window.onload = ->
 
   document.body.appendChild renderer.view
 
+  stillRendering = false
+
   render = ->
-    renderer.render stage
-    requestAnimFrame render
+    if not stillRendering
+      stillRendering = true
+      renderer.render stage
+      stillRendering = false
+
 
   loader.onComplete = ->
     alert "loader complete"
-    requestAnimFrame render
+    setIntervall(
+      ->
+        requestAnimFrame render
+
+      16.6666
+    )
+
 
   loader.load()
