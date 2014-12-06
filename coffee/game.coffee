@@ -1,5 +1,5 @@
 window.onload = ->
-  stage = new PIXI.Stage 0xcccccc
+  stage = new PIXI.Stage 0xffffff
   renderer = PIXI.autoDetectRenderer(
     Math.max(
       document.documentElement['clientWidth']
@@ -20,7 +20,7 @@ window.onload = ->
 
   loader = new PIXI.AssetLoader ['img/animalTex.png']
 
-  gameContainer = new PIXI.SpriteBatch()
+  #gameContainer = new PIXI.SpriteBatch()
 
   stage.addChild gameContainer
 
@@ -32,7 +32,9 @@ window.onload = ->
 
 
   playerSprite = PIXI.Sprite.fromImage 'img/animalTex.png'
-  playerSprite.tint = 0xFF0000
+  playerSprite.tint = 0xcccccc
+  playerSprite.scale = new PIXI.Point 20/82, 20/82
+  
   stage.addChild playerSprite
 
   processInput = ->
