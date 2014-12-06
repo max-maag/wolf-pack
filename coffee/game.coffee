@@ -31,7 +31,7 @@ window.onload = ->
   lastFrame = -1
 
 
-  playerSprite = Pixi.Sprite.fromImage 'img/animalTex.png'
+  playerSprite = PIXI.Sprite.fromImage 'img/animalTex.png'
   gameContainer.addChild playerSprite
 
 

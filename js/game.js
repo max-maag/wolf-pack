@@ -10,7 +10,7 @@
     document.body.appendChild(renderer.view);
     stillRendering = false;
     lastFrame = -1;
-    playerSprite = Pixi.Sprite.fromImage('img/animalTex.png');
+    playerSprite = PIXI.Sprite.fromImage('img/animalTex.png');
     gameContainer.addChild(playerSprite);
     processInput = function() {};
     update = function() {};
