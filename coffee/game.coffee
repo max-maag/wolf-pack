@@ -26,7 +26,12 @@ window.onload = ->
 
   document.body.appendChild renderer.view
 
+  render = ->
+    renderer.render stage
+    requestAnimFrame render
+
   loader.onComplete = ->
     alert "loader complete"
+    requestAnimFrame render
 
   loader.load()
