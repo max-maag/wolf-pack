@@ -13,6 +13,9 @@
     }
 
     PlayerController.prototype.handleInput = function(e) {
+      if (e.repeat) {
+        return;
+      }
       console.log(e);
       switch (e.code) {
         case 65:

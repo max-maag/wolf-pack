@@ -1,7 +1,10 @@
 class @PlayerController extends AnimalController
   handleInput: (e) =>
+    if e.repeat
+      return
+      
     console.log e
-    
+
     switch e.code
       when 65 #A
         @direction.x += if e.type is "keydown" then -1 else 1
