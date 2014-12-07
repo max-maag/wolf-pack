@@ -8,5 +8,5 @@ class @AnimalController
       @direction.normalize()
       len = 1.0
 
-    console.log "d: #{@direction}"
+    #console.log "d: #{@direction}"
     @model.acceleration = @direction.mulCpy @model.maxAcc

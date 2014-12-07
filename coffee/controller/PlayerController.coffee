@@ -1,5 +1,6 @@
 class @PlayerController extends AnimalController
   handleInput: (e) =>
+    console.log e
     if e.repeat
       return
 
