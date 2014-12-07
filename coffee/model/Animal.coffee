@@ -1,3 +1,10 @@
 class Animal
-  constructor: (@position, @speed, @turnSpeed, @orientation = 0) ->
+  constructor: (
+    @position = new Vector 0.0, 0.0
+    @speed = new Vector 0.0, 0.0
+    @acceleration = new Vector 0.0, 0.0
+    @maxSpeed = 1
+    @maxTurnSpeed = 1.0
+    @orientation = 0.0
     @attitude = 0
+    ) ->

@@ -3,12 +3,14 @@
   var Animal;
 
   Animal = (function() {
-    function Animal(position, speed, turnSpeed, orientation) {
-      this.position = position;
-      this.speed = speed;
-      this.turnSpeed = turnSpeed;
-      this.orientation = orientation != null ? orientation : 0;
-      this.attitude = 0;
+    function Animal(position, speed, acceleration, maxSpeed, maxTurnSpeed, orientation, attitude) {
+      this.position = position != null ? position : new Vector(0.0, 0.0);
+      this.speed = speed != null ? speed : new Vector(0.0, 0.0);
+      this.acceleration = acceleration != null ? acceleration : new Vector(0.0, 0.0);
+      this.maxSpeed = maxSpeed != null ? maxSpeed : 1;
+      this.maxTurnSpeed = maxTurnSpeed != null ? maxTurnSpeed : 1.0;
+      this.orientation = orientation != null ? orientation : 0.0;
+      this.attitude = attitude != null ? attitude : 0;
     }
 
     return Animal;
