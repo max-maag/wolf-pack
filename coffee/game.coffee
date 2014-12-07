@@ -21,7 +21,7 @@ window.onload = ->
 
   stage.addChild playerSprite
 
-  playerController = new PlayerController(new Animal())
+  playerController = new PlayerController(new Animal playerSprite)
 
   document.addEventListener "keydown", playerController.handleInput
   document.addEventListener "keyup", playerController.handleInput
@@ -43,6 +43,7 @@ window.onload = ->
         a.velocity.normalize().mul a.maxSpeed
 
       a.position.add(a.velocity.mulCpy dt)
+      #a.sprite.position = a.position
 
     lastFrame += dt
 

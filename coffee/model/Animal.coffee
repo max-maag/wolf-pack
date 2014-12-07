@@ -1,5 +1,6 @@
 class @Animal
   constructor: (
+    @sprite
     @position = new Vector 0.0, 0.0
     @velocity = new Vector 0.0, 0.0
     @acceleration = new Vector 0.0, 0.0
@@ -9,3 +10,4 @@ class @Animal
     @orientation = 0.0
     @attitude = 0.0
     ) ->
+    @sprite.position = @position

@@ -14,7 +14,7 @@
     playerSprite.tint = 0xcccccc;
     playerSprite.scale = new Vector(TEX_SCALE, TEX_SCALE);
     stage.addChild(playerSprite);
-    playerController = new PlayerController(new Animal());
+    playerController = new PlayerController(new Animal(playerSprite));
     document.addEventListener("keydown", playerController.handleInput);
     document.addEventListener("keyup", playerController.handleInput);
     animals = [playerController];
