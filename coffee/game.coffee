@@ -44,6 +44,8 @@ window.onload = ->
 
       a.position.add(a.velocity.mulCpy dt)
 
+    lastFrame += dt
+
 
   render = ->
     if not stillRendering

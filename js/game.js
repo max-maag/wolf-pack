@@ -19,13 +19,12 @@
     document.addEventListener("keyup", playerController.handleInput);
     animals = [playerController];
     update = function() {
-      var a, animal, dt, _i, _j, _len, _len1, _results;
+      var a, animal, dt, _i, _j, _len, _len1;
       dt = Date.now() - lastFrame;
       for (_i = 0, _len = animals.length; _i < _len; _i++) {
         animal = animals[_i];
         animal.think();
       }
-      _results = [];
       for (_j = 0, _len1 = animals.length; _j < _len1; _j++) {
         animal = animals[_j];
         a = animal.model;
@@ -33,9 +32,9 @@
         if (a.velocity.length > a.maxSpeed) {
           a.velocity.normalize().mul(a.maxSpeed);
         }
-        _results.push(a.position.add(a.velocity.mulCpy(dt)));
+        a.position.add(a.velocity.mulCpy(dt));
       }
-      return _results;
+      return lastFrame += dt;
     };
     render = function() {
       if (!stillRendering) {
