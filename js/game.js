@@ -2,7 +2,7 @@
 (function() {
   window.onload = function() {
     var TEX_SCALE, UNIT, animals, lastFrame, loader, playerController, playerSprite, render, renderer, stage, step, stillRendering, update;
-    alert(new Vector('load complete'));
+    alert('load complete');
     stage = new PIXI.Stage(0xffffff);
     renderer = PIXI.autoDetectRenderer(Screen.width, Screen.height);
     UNIT = Screen.width / 100.0;

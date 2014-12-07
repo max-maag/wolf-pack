@@ -1,5 +1,5 @@
 window.onload = ->
-  alert new Vector('load complete')
+  alert 'load complete'
   stage = new PIXI.Stage 0xffffff
   renderer = PIXI.autoDetectRenderer Screen.width, Screen.height
 
