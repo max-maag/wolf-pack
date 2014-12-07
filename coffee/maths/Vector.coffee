@@ -1,4 +1,5 @@
-class @Vector #extends PIXI.Point
+#extends PIXI.Point
+class @Vector
   constructor: (@x = 0, @y = 0) ->
 
   clone: =>
