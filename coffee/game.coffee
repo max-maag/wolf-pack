@@ -32,7 +32,7 @@ window.onload = ->
   update = ->
     dt = (Date.now() - lastFrame)/1000
 
-    console.log "dt: #{dt}"
+    #console.log "dt: #{dt}"
 
     for animal in animals
       animal.think()
@@ -40,21 +40,21 @@ window.onload = ->
     for animal in animals
       a = animal.model
 
-      console.log "a: #{a.acceleration}"
+      #console.log "a: #{a.acceleration}"
 
       a.velocity.add(a.acceleration.mulCpy dt)
 
-      console.log "v: #{a.velocity}"
+      #console.log "v: #{a.velocity}"
 
       if a.velocity.length > a.maxSpeed
         a.velocity.normalize().mul a.maxSpeed
 
-      console.log "v: #{a.velocity}"
+      #console.log "v: #{a.velocity}"
       a.position.add(a.velocity.mulCpy dt)
 
-      console.log "p: #{a.position}"
+      #console.log "p: #{a.position}"
       #a.sprite.position = a.position
-      console.log "s: #{a.sprite.position}"
+      #console.log "s: #{a.sprite.position}"
 
     lastFrame += dt
 

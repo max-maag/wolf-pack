@@ -16,6 +16,7 @@
       if (e.repeat) {
         return;
       }
+      console.log(e);
       switch (e.keyCode) {
         case 65:
           return this.direction.x += e.type === "keydown" ? -1 : 1;
