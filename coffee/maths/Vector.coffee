@@ -1,4 +1,3 @@
-#extends PIXI.Point
 class @Vector
   constructor: (@x = 0, @y = 0) ->
 
