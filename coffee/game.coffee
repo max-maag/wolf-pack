@@ -1,5 +1,5 @@
 window.onload = ->
-  alert 'load complete'
+  alert new Vector(2, 0).length()
   stage = new PIXI.Stage 0xffffff
   renderer = PIXI.autoDetectRenderer Screen.width, Screen.height
 
@@ -18,7 +18,7 @@ window.onload = ->
 
   playerSprite = PIXI.Sprite.fromImage 'img/animalTex.png'
   playerSprite.tint = 0xcccccc
-  playerSprite.scale = new Vector 2*TEX_SCALE, 2*TEX_SCALE
+  playerSprite.scale = new Vector TEX_SCALE, TEX_SCALE
 
   stage.addChild playerSprite
 
