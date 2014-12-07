@@ -1,4 +1,4 @@
-class AnimalController
+class @AnimalController
   constructor: (@model) ->
     @direction = new Vector 0.0, 0.0
 

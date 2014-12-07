@@ -1,4 +1,4 @@
-class PlayerController extends AnimalController
+class @PlayerController extends AnimalController
   handleInput: (e) =>
     switch e.code
       when 65 #A

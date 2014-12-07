@@ -1,4 +1,4 @@
-class Animal
+class @Animal
   constructor: (
     @position = new Vector 0.0, 0.0
     @speed = new Vector 0.0, 0.0

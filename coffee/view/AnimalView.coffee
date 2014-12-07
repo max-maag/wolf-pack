@@ -1,3 +1,2 @@
-class AnimalView
+class @AnimalView
   constructor: (parent) ->
-    

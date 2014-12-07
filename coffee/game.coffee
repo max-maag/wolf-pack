@@ -1,7 +1,7 @@
 window.onload = ->
   alert new Vector().x
   stage = new PIXI.Stage 0xffffff
-  renderer = PIXI.autoDetectRenderer Screen.width Screen.height
+  renderer = PIXI.autoDetectRenderer Screen.width, Screen.height
 
   UNIT = bodyWidth / 100.0
   TEX_SCALE = UNIT / 82.0

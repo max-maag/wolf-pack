@@ -1,4 +1,4 @@
-class Screen
+class @Screen
   @width: Math.max(
     document.documentElement?['clientWidth']
     document.body?['scrollWidth']
