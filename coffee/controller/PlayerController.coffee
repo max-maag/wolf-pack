@@ -1,7 +1,7 @@
 class @PlayerController extends AnimalController
   handleInput: (e) =>
     console.log e
-    if e.repeat
+    if not e.type is "keyup" and e.repeat
       return
 
     console.log e

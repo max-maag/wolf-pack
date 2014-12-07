@@ -14,7 +14,7 @@
 
     PlayerController.prototype.handleInput = function(e) {
       console.log(e);
-      if (e.repeat) {
+      if (!e.type === "keyup" && e.repeat) {
         return;
       }
       console.log(e);
