@@ -30,7 +30,7 @@ window.onload = ->
 
 
   update = ->
-    dt = Date.now() - lastFrame
+    dt = (Date.now() - lastFrame)/1000
 
     console.log "dt: #{dt}"
 
@@ -49,6 +49,7 @@ window.onload = ->
       if a.velocity.length > a.maxSpeed
         a.velocity.normalize().mul a.maxSpeed
 
+      console.log "v: #{a.velocity}"
       a.position.add(a.velocity.mulCpy dt)
 
       console.log "p: #{a.position}"
