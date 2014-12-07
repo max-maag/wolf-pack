@@ -3,10 +3,9 @@ class @AnimalController
     @direction = new Vector 0.0, 0.0
 
   think: =>
-    len = @direction.x * @direction.x + @direction.y * @direction.y
-    if len > 1
-      @direction.x /= len
-      @direction.y /= len
-      len = 1
+    len = @direction.length()
+    if len > 1.0
+      @direction.normalize()
+      len = 1.0
 
-  #TODO  @acceleration =
+    @model.acceleration = @direction.mulCpy @model.maxAcc

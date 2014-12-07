@@ -2,7 +2,6 @@
 (function() {
   window.onload = function() {
     var TEX_SCALE, UNIT, animals, lastFrame, loader, playerController, playerSprite, render, renderer, stage, step, stillRendering, update;
-    alert((new Vector(2.0, 0.0)).length());
     stage = new PIXI.Stage(0xffffff);
     renderer = PIXI.autoDetectRenderer(Screen.width, Screen.height);
     UNIT = Screen.width / 100.0;
@@ -10,7 +9,7 @@
     loader = new PIXI.AssetLoader(['img/animalTex.png']);
     document.body.appendChild(renderer.view);
     stillRendering = false;
-    lastFrame = -1;
+    lastFrame = Date.now();
     playerSprite = PIXI.Sprite.fromImage('img/animalTex.png');
     playerSprite.tint = 0xcccccc;
     playerSprite.scale = new Vector(TEX_SCALE, TEX_SCALE);
@@ -20,11 +19,21 @@
     document.addEventListener("keyup", playerController.handleInput);
     animals = [playerController];
     update = function() {
-      var animal, _i, _len, _results;
-      _results = [];
+      var a, animal, dt, _i, _j, _len, _len1, _results;
+      dt = Date.now() - lastFrame;
       for (_i = 0, _len = animals.length; _i < _len; _i++) {
         animal = animals[_i];
-        _results.push(animal.think());
+        animal.think();
+      }
+      _results = [];
+      for (_j = 0, _len1 = animals.length; _j < _len1; _j++) {
+        animal = animals[_j];
+        a = animal.model;
+        a.velocity.add(a.acceleration.mulCpy(dt));
+        if (a.velocity.length > a.maxSpeed) {
+          a.velocity.normalize().mul(a.maxSpeed);
+        }
+        _results.push(a.position.add(a.velocity.mulCpy(dt)));
       }
       return _results;
     };

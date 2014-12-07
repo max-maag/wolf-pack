@@ -11,12 +11,12 @@
 
     AnimalController.prototype.think = function() {
       var len;
-      len = this.direction.x * this.direction.x + this.direction.y * this.direction.y;
-      if (len > 1) {
-        this.direction.x /= len;
-        this.direction.y /= len;
-        return len = 1;
+      len = this.direction.length();
+      if (len > 1.0) {
+        this.direction.normalize();
+        len = 1.0;
       }
+      return this.model.acceleration = this.direction.mulCpy(this.model.maxAcc);
     };
 
     return AnimalController;

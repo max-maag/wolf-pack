@@ -1,5 +1,4 @@
 window.onload = ->
-  alert (new Vector(2.0, 0.0)).length()
   stage = new PIXI.Stage 0xffffff
   renderer = PIXI.autoDetectRenderer Screen.width, Screen.height
 
@@ -14,7 +13,7 @@ window.onload = ->
   document.body.appendChild renderer.view
 
   stillRendering = false
-  lastFrame = -1
+  lastFrame = Date.now()
 
   playerSprite = PIXI.Sprite.fromImage 'img/animalTex.png'
   playerSprite.tint = 0xcccccc
@@ -31,8 +30,19 @@ window.onload = ->
 
 
   update = ->
+    dt = Date.now() - lastFrame
+
     for animal in animals
       animal.think()
+
+    for animal in animals
+      a = animal.model
+      a.velocity.add(a.acceleration.mulCpy dt)
+
+      if a.velocity.length > a.maxSpeed
+        a.velocity.normalize().mul a.maxSpeed
+
+      a.position.add(a.velocity.mulCpy dt)
 
 
   render = ->

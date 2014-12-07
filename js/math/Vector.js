@@ -6,6 +6,12 @@
     function Vector(x, y) {
       this.x = x != null ? x : 0;
       this.y = y != null ? y : 0;
+      this.normalize = __bind(this.normalize, this);
+      this.dot = __bind(this.dot, this);
+      this.addCpy = __bind(this.addCpy, this);
+      this.add = __bind(this.add, this);
+      this.mulCpy = __bind(this.mulCpy, this);
+      this.mul = __bind(this.mul, this);
       this.length = __bind(this.length, this);
       this.set = __bind(this.set, this);
       this.clone = __bind(this.clone, this);
@@ -25,6 +31,39 @@
 
     Vector.prototype.length = function() {
       return Math.sqrt(this.x * this.x + this.y * this.y);
+    };
+
+    Vector.prototype.mul = function(scalar) {
+      this.x *= scalar;
+      this.y *= scalar;
+      return this;
+    };
+
+    Vector.prototype.mulCpy = function(scalar) {
+      return this.clone().mul(scalar);
+    };
+
+    Vector.prototype.add = function(val) {
+      if (val instanceof Vector) {
+        this.x += val.x;
+        this.y += val.y;
+      } else {
+        this.x += val;
+        this.y += val;
+      }
+      return this;
+    };
+
+    Vector.prototype.addCpy = function(val) {
+      return this.clone().add(val);
+    };
+
+    Vector.prototype.dot = function(vec) {
+      return this.x * vec.x + this.y * vec.y;
+    };
+
+    Vector.prototype.normalize = function() {
+      return this.mul(1.0 / this.length());
     };
 
     return Vector;
