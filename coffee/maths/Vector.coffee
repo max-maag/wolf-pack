@@ -1,3 +1,12 @@
-class @Vector extends PIXI.Point
+class @Vector #extends PIXI.Point
+  constructor: (@x = 0, @y = 0) ->
+
+  clone: =>
+    return new Vector(@x, @y)
+
+  set: (x = 0, y)=>
+    @x = x
+    @y = y ? x
+
   length: =>
-    Math.sqrt @x*@x + @y*@y
+    return Math.sqrt @x*@x + @y*@y
