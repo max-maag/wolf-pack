@@ -37,3 +37,6 @@ class @Vector
 
   normalize: =>
     @mul 1.0/@length()
+
+  toString: =>
+    "(#{@x}, #{@y})"

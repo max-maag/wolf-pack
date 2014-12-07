@@ -6,6 +6,7 @@
     function Vector(x, y) {
       this.x = x != null ? x : 0;
       this.y = y != null ? y : 0;
+      this.toString = __bind(this.toString, this);
       this.normalize = __bind(this.normalize, this);
       this.dot = __bind(this.dot, this);
       this.addCpy = __bind(this.addCpy, this);
@@ -64,6 +65,10 @@
 
     Vector.prototype.normalize = function() {
       return this.mul(1.0 / this.length());
+    };
+
+    Vector.prototype.toString = function() {
+      return "(" + this.x + ", " + this.y + ")";
     };
 
     return Vector;

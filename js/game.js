@@ -21,6 +21,7 @@
     update = function() {
       var a, animal, dt, _i, _j, _len, _len1;
       dt = Date.now() - lastFrame;
+      console.log("dt: " + dt);
       for (_i = 0, _len = animals.length; _i < _len; _i++) {
         animal = animals[_i];
         animal.think();
@@ -28,11 +29,15 @@
       for (_j = 0, _len1 = animals.length; _j < _len1; _j++) {
         animal = animals[_j];
         a = animal.model;
+        console.log("a: " + a.acceleration);
         a.velocity.add(a.acceleration.mulCpy(dt));
+        console.log("v: " + a.velocity);
         if (a.velocity.length > a.maxSpeed) {
           a.velocity.normalize().mul(a.maxSpeed);
         }
         a.position.add(a.velocity.mulCpy(dt));
+        console.log("p: " + a.position);
+        console.log("s: " + a.sprite.position);
       }
       return lastFrame += dt;
     };
