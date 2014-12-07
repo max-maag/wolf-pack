@@ -1,2 +1,1 @@
-class @Vector #extends PIXI.Point
-  constructor: (@x = 0, @y = 0) ->
+class @Vector extends PIXI.Point
