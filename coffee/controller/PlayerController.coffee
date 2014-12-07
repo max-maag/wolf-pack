@@ -5,7 +5,7 @@ class @PlayerController extends AnimalController
 
     #console.log e
 
-    switch e.code
+    switch e.keyCode
       when 65 #A
         @direction.x += if e.type is "keydown" then -1 else 1
       when 68 #D
