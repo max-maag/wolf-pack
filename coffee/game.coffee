@@ -1,5 +1,4 @@
 window.onload = ->
-  #test
   alert new Vector().x
   stage = new PIXI.Stage 0xffffff
   renderer = PIXI.autoDetectRenderer Screen.width, Screen.height
@@ -26,7 +25,7 @@ window.onload = ->
   playerController = new PlayerController(new Animal())
 
   document.addEventListener "keydown", playerController.handleInput
-  document.addEventListener "keyup", plyerController.handleInput
+  document.addEventListener "keyup", playerController.handleInput
 
   animals = [playerController]
 

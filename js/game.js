@@ -17,7 +17,7 @@
     stage.addChild(playerSprite);
     playerController = new PlayerController(new Animal());
     document.addEventListener("keydown", playerController.handleInput);
-    document.addEventListener("keyup", plyerController.handleInput);
+    document.addEventListener("keyup", playerController.handleInput);
     animals = [playerController];
     update = function() {
       var animal, _i, _len, _results;
