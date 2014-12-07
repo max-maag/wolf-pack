@@ -1,2 +1,1 @@
-class Vector extends PIXI.Point
-  
+class @Vector extends PIXI.Point
