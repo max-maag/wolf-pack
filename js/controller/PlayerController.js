@@ -24,9 +24,9 @@
         case 68:
           return this.direction.x += e.type === "keydown" ? 1 : -1;
         case 87:
-          return this.direction.y += e.type === "keydown" ? 1 : -1;
-        case 83:
           return this.direction.y += e.type === "keydown" ? -1 : 1;
+        case 83:
+          return this.direction.y += e.type === "keydown" ? 1 : -1;
       }
     };
 
