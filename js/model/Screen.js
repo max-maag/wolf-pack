@@ -5,7 +5,7 @@
 
     function Screen() {}
 
-    Screen.width = Math.max((_ref = document.documentElement) != null ? _ref.clientWidth : void 0, (_ref1 = document.body) != null ? _ref1.scrollWidth : void 0, (_ref2 = document.documentElement) != null ? _ref2.scrollWidth : void 0, (_ref3 = document.body) != null ? _ref3.offsetWidth : void 0, (_ref4 = document.documentElement) != null ? _ref4.offsetWidth : void 0);
+    Screen.width = Math.max(((_ref = document.documentElement) != null ? _ref.clientWidth : void 0) || 0, ((_ref1 = document.body) != null ? _ref1.scrollWidth : void 0) || 0, ((_ref2 = document.documentElement) != null ? _ref2.scrollWidth : void 0) || 0, ((_ref3 = document.body) != null ? _ref3.offsetWidth : void 0) || 0, ((_ref4 = document.documentElement) != null ? _ref4.offsetWidth : void 0) || 0);
 
     Screen.height = bodyHeight = Math.max((_ref5 = document.documentElement) != null ? _ref5.clientHeight : void 0, (_ref6 = document.body) != null ? _ref6.scrollHeight : void 0, (_ref7 = document.documentElement) != null ? _ref7.scrollHeight : void 0, (_ref8 = document.body) != null ? _ref8.offsetHeight : void 0, (_ref9 = document.documentElement) != null ? _ref9.offsetHeight : void 0);
 

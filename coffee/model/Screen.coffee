@@ -1,10 +1,10 @@
 class @Screen
   @width: Math.max(
-    document.documentElement?.clientWidth
-    document.body?.scrollWidth
-    document.documentElement?.scrollWidth
-    document.body?.offsetWidth
-    document.documentElement?.offsetWidth
+    document.documentElement?.clientWidth or 0
+    document.body?.scrollWidth or 0
+    document.documentElement?.scrollWidth or 0
+    document.body?.offsetWidth or 0
+    document.documentElement?.offsetWidth or 0
   )
 
   @height: bodyHeight = Math.max(
