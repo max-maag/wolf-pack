@@ -33,7 +33,7 @@
       console.log('Spawning prey');
       prey = this.getPrey();
       prey.model.sprite.tint = 0x79cc26;
-      prey.model.setSize(0.2);
+      prey.model.setSize(0.3);
       prey.model.maxSpeed /= 2.0;
       r = prey.model.size * Constants.TEX_UNIT;
       prey.model.setPosition(new Vector(MathUtil.randInt(r, Screen.width / Constants.UNIT - r), MathUtil.randInt(r, Screen.height / Constants.UNIT - r)));

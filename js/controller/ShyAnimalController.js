@@ -7,10 +7,17 @@
   this.ShyAnimalController = (function(_super) {
     __extends(ShyAnimalController, _super);
 
+    ShyAnimalController.prototype.calcNextTarget = function() {
+      this.nextMoveTime = Date.now() + MathUtil.randInt(500, 5000);
+      return this.nextMoveTarget = this.model.position.clone().add(new Vector(MathUtil.randInt(-1, 1), MathUtil.randInt(-1, 1)).normalize().mul(MathUtil.randInt(0.1, this.model.maxSpeed)));
+    };
+
     function ShyAnimalController(playerModel, model) {
       this.playerModel = playerModel;
       this.think = __bind(this.think, this);
+      this.calcNextTarget = __bind(this.calcNextTarget, this);
       ShyAnimalController.__super__.constructor.call(this, model);
+      this.calcNextTarget();
     }
 
     ShyAnimalController.prototype.think = function(dt) {
@@ -18,10 +25,15 @@
       this.direction.sub(this.playerModel.position);
       if (this.direction.length() < 5) {
         this.direction.normalize();
+      } else if (Date.now() - this.nextMoveTime > 0) {
+        if (this.model.position.subCpy(this.nextMoveTarget).length() < 0.5) {
+          this.calcNextTarget();
+        } else {
+          this.direction.set(this.nextMoveTarget.subCpy(this.model.position));
+        }
       } else {
         this.direction.set(0);
       }
-      this.direction.add(MathUtil.randInt(-0.1, 0.1, MathUtil.randInt(-0.1, 0.1)));
       return ShyAnimalController.__super__.think.call(this, dt);
     };
 

@@ -17,7 +17,7 @@ class @PreySpawnSystem extends System
     console.log 'Spawning prey'
     prey = @getPrey()
     prey.model.sprite.tint = 0x79cc26
-    prey.model.setSize 0.2
+    prey.model.setSize 0.3
     prey.model.maxSpeed /= 2.0
 
 

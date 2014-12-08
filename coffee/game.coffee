@@ -17,7 +17,7 @@ class Game
 
       a.position.add(a.velocity.mulCpy dt)
 
-      r = a.size * Constants.TEX_UNIT/2
+      r = a.size * Constants.TEX_UNIT/2.0
       if a.position.x - r <= 0
         a.position.x = r
         a.velocity.x = 0
