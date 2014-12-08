@@ -18,6 +18,7 @@
     update = function() {
       var a, animal, dt, r, _i, _j, _len, _len1;
       dt = (Date.now() - lastFrame) / 1000;
+      console.log("dt: " + dt);
       for (_i = 0, _len = animals.length; _i < _len; _i++) {
         animal = animals[_i];
         animal.think(dt);

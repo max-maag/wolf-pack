@@ -29,7 +29,7 @@ window.onload = ->
   update = ->
     dt = (Date.now() - lastFrame)/1000
 
-    #console.log "dt: #{dt}"
+    console.log "dt: #{dt}"
 
     for animal in animals
       animal.think(dt)
