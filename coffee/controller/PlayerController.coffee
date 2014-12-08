@@ -1,7 +1,7 @@
 class @PlayerController extends AnimalController
   handleInput: (e) =>
     if (e.type is "keyup") or ((e.type is "keydown") and not e.repeat)
-      console.log e
+      #console.log e
 
       switch e.keyCode
         when 65 #A

@@ -37,7 +37,7 @@ window.onload = ->
     for animal in animals
       a = animal.model
 
-      console.log "a: #{a.acceleration}"
+      #console.log "a: #{a.acceleration}"
 
       a.velocity.add(a.acceleration.mulCpy dt)
 
@@ -46,7 +46,7 @@ window.onload = ->
       if a.velocity.length() > a.maxSpeed
         a.velocity.normalize().mul a.maxSpeed
 
-      console.log "v: #{a.velocity}"
+      #console.log "v: #{a.velocity}"
       a.position.add(a.velocity.mulCpy dt)
 
       r = a.size * Constants.TEX_RAD/2
