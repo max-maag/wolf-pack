@@ -7,6 +7,7 @@ class @ShyAnimalController extends AnimalController
         MathUtil.randInt -1, 1
       ).normalize().mul(MathUtil.randInt(0.1, @model.maxSpeed))
     )
+    @targetDirty = false
 
     if @nextMoveTarget.x < 1
       @nextMoveTarget.x = 1
@@ -31,13 +32,15 @@ class @ShyAnimalController extends AnimalController
     if @direction.length() < 5
       # run!
       @direction.normalize()
-      @nextMoveTime = 0
-    else if Date.now() - @nextMoveTime > 0
+      @targetDirty = true
+    else if @targetDirty
+      @calcNextTarget()
+    else if Date.now() - @nextMoveTime > 0.0
       if @model.position.subCpy(@nextMoveTarget).length() < 0.5
         @calcNextTarget()
       else
         @direction.set @nextMoveTarget.subCpy @model.position
     else
-      @direction.set 0
+      @direction.set 0.0
 
     super dt

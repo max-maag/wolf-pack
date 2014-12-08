@@ -10,6 +10,7 @@
     ShyAnimalController.prototype.calcNextTarget = function() {
       this.nextMoveTime = Date.now() + MathUtil.randInt(500, 5000);
       this.nextMoveTarget = this.model.position.clone().add(new Vector(MathUtil.randInt(-1, 1), MathUtil.randInt(-1, 1)).normalize().mul(MathUtil.randInt(0.1, this.model.maxSpeed)));
+      this.targetDirty = false;
       if (this.nextMoveTarget.x < 1) {
         this.nextMoveTarget.x = 1;
       }
@@ -37,15 +38,17 @@
       this.direction.sub(this.playerModel.position);
       if (this.direction.length() < 5) {
         this.direction.normalize();
-        this.nextMoveTime = 0;
-      } else if (Date.now() - this.nextMoveTime > 0) {
+        this.targetDirty = true;
+      } else if (this.targetDirty) {
+        this.calcNextTarget();
+      } else if (Date.now() - this.nextMoveTime > 0.0) {
         if (this.model.position.subCpy(this.nextMoveTarget).length() < 0.5) {
           this.calcNextTarget();
         } else {
           this.direction.set(this.nextMoveTarget.subCpy(this.model.position));
         }
       } else {
-        this.direction.set(0);
+        this.direction.set(0.0);
       }
       return ShyAnimalController.__super__.think.call(this, dt);
     };
