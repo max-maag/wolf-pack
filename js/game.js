@@ -49,7 +49,7 @@
           a.velocity.y = 0;
         }
       }
-      return lastFrame += dt;
+      return lastFrame = Date.now();
     };
     render = function() {
       if (!stillRendering) {

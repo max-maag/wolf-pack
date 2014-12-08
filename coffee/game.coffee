@@ -67,7 +67,7 @@ window.onload = ->
       #a.sprite.position = a.position
       #console.log "s: #{a.sprite.position}"
 
-    lastFrame += dt
+    lastFrame = Date.now()
 
 
   render = ->
