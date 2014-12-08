@@ -4,8 +4,8 @@ class @Animal
     @position = new Vector 0.0, 0.0
     @velocity = new Vector 0.0, 0.0
     @acceleration = new Vector 0.0, 0.0
-    @maxSpeed = 5
-    @maxAcc = 1
+    @maxSpeed = 20
+    @maxAcc = 10
     @maxTurnSpeed = 1.0
     @orientation = 0.0
     @attitude = 0.0
