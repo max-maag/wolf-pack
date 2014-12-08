@@ -13,19 +13,18 @@
     }
 
     PlayerController.prototype.handleInput = function(e) {
-      if ((!e.type === "keyup") && e.repeat) {
-        return;
-      }
-      console.log(e);
-      switch (e.keyCode) {
-        case 65:
-          return this.direction.x += e.type === "keydown" ? -1 : 1;
-        case 68:
-          return this.direction.x += e.type === "keydown" ? 1 : -1;
-        case 87:
-          return this.direction.y += e.type === "keydown" ? -1 : 1;
-        case 83:
-          return this.direction.y += e.type === "keydown" ? 1 : -1;
+      if ((e.type === "keyup") || ((e.type === "keydown") && !e.repeat)) {
+        console.log(e);
+        switch (e.keyCode) {
+          case 65:
+            return this.direction.x += e.type === "keydown" ? -1 : 1;
+          case 68:
+            return this.direction.x += e.type === "keydown" ? 1 : -1;
+          case 87:
+            return this.direction.y += e.type === "keydown" ? -1 : 1;
+          case 83:
+            return this.direction.y += e.type === "keydown" ? 1 : -1;
+        }
       }
     };
 
