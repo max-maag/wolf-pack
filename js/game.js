@@ -16,7 +16,7 @@
     document.addEventListener("keyup", playerController.handleInput);
     animals = [playerController];
     update = function() {
-      var a, animal, dt, r, _i, _j, _len, _len1;
+      var a, animal, dt, r, v, _i, _j, _len, _len1;
       dt = (Date.now() - lastFrame) / 1000;
       for (_i = 0, _len = animals.length; _i < _len; _i++) {
         animal = animals[_i];
@@ -47,7 +47,9 @@
         }
         a.sprite.position.set(a.position);
         a.sprite.position.mul(Constants.UNIT);
-        a.sprite.rotation = Math.acos(a.velocity.x / a.velocity.length() - Math.PI / 2.0);
+        if (!(v = a.velocity.length() === 0)) {
+          a.sprite.rotation = Math.acos(a.velocity.x / v - Math.PI / 2.0);
+        }
         console.log("r: " + a.sprite.rotation);
       }
       return lastFrame += dt * 1000;

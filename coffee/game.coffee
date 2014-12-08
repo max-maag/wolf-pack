@@ -66,8 +66,11 @@ window.onload = ->
       #console.log "p: #{a.position}"
       a.sprite.position.set a.position
       a.sprite.position.mul Constants.UNIT
-      a.sprite.rotation =
-        Math.acos a.velocity.x/a.velocity.length() - Math.PI/2.0
+
+      unless v = a.velocity.length() == 0
+        a.sprite.rotation =
+          Math.acos a.velocity.x/v - Math.PI/2.0
+
       console.log "r: #{a.sprite.rotation}"
 
     lastFrame += dt * 1000
