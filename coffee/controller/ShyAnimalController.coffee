@@ -5,5 +5,6 @@ class @ShyAnimalController extends AnimalController
   think: (dt) =>
     @direction
       .set @model.position
+    @direction
       .sub @playerModel.position
       .normalize()
