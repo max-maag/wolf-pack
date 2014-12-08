@@ -16,8 +16,8 @@
       if (len > 1.0) {
         dir.normalize();
         len = 1.0;
-        this.model.acceleration.set(dir.mul(this.model.maxAcc));
       }
+      this.model.acceleration.set(dir.mul(this.model.maxAcc));
       if (dir.x === 0) {
         this.model.acceleration.x = -Constants.STOP_FORCE * this.model.velocity.x / dt;
       }

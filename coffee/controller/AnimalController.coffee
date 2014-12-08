@@ -10,7 +10,7 @@ class @AnimalController
       dir.normalize()
       len = 1.0
 
-      @model.acceleration.set dir.mul @model.maxAcc
+    @model.acceleration.set dir.mul @model.maxAcc
 
     if dir.x == 0
       @model.acceleration.x = -Constants.STOP_FORCE * @model.velocity.x / dt
