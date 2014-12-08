@@ -9,7 +9,13 @@
       this.step = __bind(this.step, this);
       this.render = __bind(this.render, this);
       this.update = __bind(this.update, this);
+      this.starve = __bind(this.starve, this);
     }
+
+    Game.prototype.starve = function() {
+      this.dead = true;
+      return console.log('You starved');
+    };
 
     Game.prototype.update = function() {
       var a, animal, ds, dt, r, system, v, _i, _j, _k, _len, _len1, _len2, _ref, _ref1, _ref2;
@@ -44,9 +50,6 @@
           a.position.y = Screen.height / Constants.UNIT - r;
           a.velocity.y = 0;
         }
-        if (a instanceof Hunter) {
-          a.setSize(a.size - ds.sub(a.position).length() * a.energyPerUnit);
-        }
         a.sprite.position.set(a.position);
         a.sprite.position.mul(Constants.UNIT);
         v = a.velocity.length();
@@ -73,10 +76,13 @@
     Game.prototype.step = function() {
       this.update();
       this.render();
-      return requestAnimFrame(this.step);
+      if (!this.dead) {
+        return requestAnimFrame(this.step);
+      }
     };
 
     Game.prototype.init = function() {
+      this.dead = false;
       this.stage = new PIXI.Stage(0xffffff);
       this.renderer = PIXI.autoDetectRenderer(Screen.width, Screen.height);
       this.loader = new PIXI.AssetLoader(['img/animalTex.png']);

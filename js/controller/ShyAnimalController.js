@@ -36,7 +36,7 @@
     ShyAnimalController.prototype.think = function(dt) {
       this.direction.set(this.model.position);
       this.direction.sub(this.playerModel.position);
-      if (this.direction.length() < 5) {
+      if (this.direction.length() < 10 * this.playerModel.size) {
         this.direction.normalize();
         this.targetDirty = true;
       } else if (this.targetDirty) {

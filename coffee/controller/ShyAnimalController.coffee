@@ -29,7 +29,7 @@ class @ShyAnimalController extends AnimalController
     @direction.set @model.position
     @direction.sub @playerModel.position
 
-    if @direction.length() < 5
+    if @direction.length() < 10 * @playerModel.size
       # run!
       @direction.normalize()
       @targetDirty = true

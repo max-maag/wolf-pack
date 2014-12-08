@@ -1,4 +1,4 @@
 class @Hunter extends Animal
   constructor: ->
     super
-    @energyPerUnit = 0.1
+    @energyPerUnit = 0.001

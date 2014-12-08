@@ -8,7 +8,7 @@
 
     function Hunter() {
       Hunter.__super__.constructor.apply(this, arguments);
-      this.energyPerUnit = 0.1;
+      this.energyPerUnit = 0.001;
     }
 
     return Hunter;

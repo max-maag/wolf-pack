@@ -1,4 +1,8 @@
 class Game
+  starve: =>
+    @dead = true
+    console.log 'You starved'
+
   update: =>
     dt = (Date.now() - @lastFrame)/1000
 
@@ -33,8 +37,8 @@ class Game
         a.position.y = Screen.height/Constants.UNIT - r
         a.velocity.y = 0
 
-      if a instanceof Hunter
-        a.setSize a.size - ds.sub(a.position).length() * a.energyPerUnit
+      #if a instanceof Hunter
+        #a.setSize a.size - ds.sub(a.position).length() * a.energyPerUnit
 
       a.sprite.position.set a.position
       a.sprite.position.mul Constants.UNIT
@@ -64,11 +68,13 @@ class Game
   step: =>
     @update()
     @render()
-    requestAnimFrame @step
+    unless @dead
+      requestAnimFrame @step
 
 
 
   init: =>
+    @dead = false
     @stage = new PIXI.Stage 0xffffff
     @renderer = PIXI.autoDetectRenderer Screen.width, Screen.height
 
