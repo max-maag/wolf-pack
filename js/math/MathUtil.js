@@ -4,7 +4,7 @@
     function MathUtil() {}
 
     MathUtil.randInt = function(min, max) {
-      return Math.random() * (max - min) + min;
+      return max - (max - min) * (1 - Math.random());
     };
 
     return MathUtil;

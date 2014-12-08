@@ -1,3 +1,3 @@
 class @MathUtil
   @randInt: (min, max) ->
-    Math.random()*(max-min) + min
+    max - (max-min)*(1-Math.random())
