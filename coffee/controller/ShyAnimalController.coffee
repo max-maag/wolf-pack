@@ -31,7 +31,7 @@ class @ShyAnimalController extends AnimalController
     if @direction.length() < 5
       # run!
       @direction.normalize()
-      @netMoveTime = 0
+      @nextMoveTime = 0
     else if Date.now() - @nextMoveTime > 0
       if @model.position.subCpy(@nextMoveTarget).length() < 0.5
         @calcNextTarget()
