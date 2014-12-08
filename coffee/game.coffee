@@ -34,7 +34,7 @@ class Game
         a.velocity.y = 0
 
       if a instanceof Hunter
-        a.size -= ds.sub(a.position).length() * a.energyPerUnit
+        a.setSize a.size - ds.sub(a.position).length() * a.energyPerUnit
 
       a.sprite.position.set a.position
       a.sprite.position.mul Constants.UNIT
