@@ -12,13 +12,13 @@
       this.minDelay = minDelay != null ? minDelay : 1000;
       this.maxDelay = maxDelay != null ? maxDelay : 10000;
       this.tick = __bind(this.tick, this);
-      this.nextSpawn = Date.now() * MathUtil.randInt(this.minDelay(this.maxDelay));
+      this.nextSpawn = Date.now() * MathUtil.randInt(this.minDelay, this.maxDelay);
     }
 
     PreySpawnSystem.prototype.tick = function() {
       if (Date.now() - this.nextSpawn >= 0) {
         this.spawnPrey();
-        return this.nextSpawn = Date.now() * MathUtil.randInt(this.minDelay(this.maxDelay));
+        return this.nextSpawn = Date.now() * MathUtil.randInt(this.minDelay, this.maxDelay);
       }
     };
 

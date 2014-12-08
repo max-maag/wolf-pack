@@ -1,11 +1,11 @@
 class @PreySpawnSystem extends System
   constructor: (@game, @minDelay = 1000, @maxDelay = 10000) ->
-    @nextSpawn = Date.now() * MathUtil.randInt @minDelay @maxDelay
+    @nextSpawn = Date.now() * MathUtil.randInt @minDelay, @maxDelay
 
   tick: =>
     if Date.now() - @nextSpawn >= 0
       @spawnPrey()
-      @nextSpawn = Date.now() * MathUtil.randInt @minDelay @maxDelay
+      @nextSpawn = Date.now() * MathUtil.randInt @minDelay, @maxDelay
 
   spawnPrey: ->
     console.log 'Spawning prey'
