@@ -44,7 +44,7 @@ window.onload = ->
       if a.velocity.length() > a.maxSpeed
         a.velocity.normalize().mul a.maxSpeed
 
-      console.log "v: #{a.velocity}"
+      #console.log "v: #{a.velocity}"
 
       a.position.add(a.velocity.mulCpy dt)
 
@@ -68,7 +68,7 @@ window.onload = ->
       a.sprite.position.mul Constants.UNIT
       a.sprite.rotation =
         Math.acos a.velocity.x/a.velocity.length() - Math.PI/2.0
-      #console.log "s: #{a.sprite.position}"
+      console.log "r: #{a.sprite.rotation}"
 
     lastFrame += dt * 1000
 
