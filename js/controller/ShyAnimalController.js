@@ -9,7 +9,19 @@
 
     ShyAnimalController.prototype.calcNextTarget = function() {
       this.nextMoveTime = Date.now() + MathUtil.randInt(500, 5000);
-      return this.nextMoveTarget = this.model.position.clone().add(new Vector(MathUtil.randInt(-1, 1), MathUtil.randInt(-1, 1)).normalize().mul(MathUtil.randInt(0.1, this.model.maxSpeed)));
+      this.nextMoveTarget = this.model.position.clone().add(new Vector(MathUtil.randInt(-1, 1), MathUtil.randInt(-1, 1)).normalize().mul(MathUtil.randInt(0.1, this.model.maxSpeed)));
+      if (this.nextMoveTarget.x < 1) {
+        this.nextMoveTarget.x = 1;
+      }
+      if (this.nextMoveTarget.x > Screen.width / Constants.UNIT - 1) {
+        this.nextMoveTarget.x = Screen.width / Constants.UNIT - 1;
+      }
+      if (this.nextMoveTarget.y < 1) {
+        this.nextMoveTarget.y = 1;
+      }
+      if (this.nextMoveTarget.y > Screen.height / Constants.UNIT - 1) {
+        return this.nextMoveTarget.y = Screen.height / Constants.UNIT - 1;
+      }
     };
 
     function ShyAnimalController(playerModel, model) {
