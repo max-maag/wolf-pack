@@ -47,10 +47,11 @@
         }
         a.sprite.position.set(a.position);
         a.sprite.position.mul(Constants.UNIT);
-        if (!(v = a.velocity.length() === 0)) {
+        v = a.velocity.length();
+        if (v !== 0) {
           a.sprite.rotation = Math.acos(a.velocity.x / v) - Math.PI / 2.0;
         }
-        console.log("r: " + a.sprite.rotation);
+        console.log("v.x: " + a.velocity.x + ", |v|: " + v + ", r: " + a.sprite.rotation);
       }
       return lastFrame += dt * 1000;
     };
