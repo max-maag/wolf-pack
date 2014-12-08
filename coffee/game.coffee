@@ -41,12 +41,11 @@ window.onload = ->
 
       a.velocity.add(a.acceleration.mulCpy dt)
 
-      console.log "v: #{a.velocity}"
-
       if a.velocity.length() > a.maxSpeed
         a.velocity.normalize().mul a.maxSpeed
 
-      #console.log "v: #{a.velocity}"
+      console.log "v: #{a.velocity}"
+
       a.position.add(a.velocity.mulCpy dt)
 
       r = a.size * Constants.TEX_RAD/2
