@@ -21,7 +21,7 @@
       } else {
         this.direction.set(0);
       }
-      this.direction.set(MathUtil.randInt(-0.1, 0.1, MathUtil.randInt(-0.1, 0.1)));
+      this.direction.add(MathUtil.randInt(-0.1, 0.1, MathUtil.randInt(-0.1, 0.1)));
       return ShyAnimalController.__super__.think.call(this, dt);
     };
 
