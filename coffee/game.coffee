@@ -49,17 +49,17 @@ window.onload = ->
       a.position.add(a.velocity.mulCpy dt)
 
       r = a.size * Constants.TEX_UNIT
-      if a.position.x <= r
+      if a.position.x - r <= 0
         a.position.x = r
         a.velocity.x = 0
-      else if a.position.x + r >= Screen.width
+      else if a.position.x + r >= Screen.width/Constants.UNIT
         a.position.x = Screen.width - r
         a.velocity.x = 0
 
       if a.position.y <= r
         a.position.y = r
         a.velocity.y = 0
-      else if a.position.y + r >= Screen.height
+      else if a.position.y + r >= Screen.height/Constants.UNIT
         a.position.y = Screen.height - r
         a.velocity.y = 0
 
@@ -72,7 +72,7 @@ window.onload = ->
         a.sprite.rotation =
           Math.atan2(a.velocity.y/v, a.velocity.x/v) + Math.PI/2
 
-      console.log "v.x: #{a.velocity.x}, |v|: #{v}, r: #{a.sprite.rotation}"
+      #console.log "v.x: #{a.velocity.x}, |v|: #{v}, r: #{a.sprite.rotation}"
 
     lastFrame += dt * 1000
 
