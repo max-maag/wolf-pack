@@ -12,13 +12,13 @@
       this.minDelay = minDelay != null ? minDelay : 1000;
       this.maxDelay = maxDelay != null ? maxDelay : 10000;
       this.tick = __bind(this.tick, this);
-      this.nextSpawn = Date.now() * MathUtils.randInt(this.minDelay(this.maxDelay));
+      this.nextSpawn = Date.now() * MathUtil.randInt(this.minDelay(this.maxDelay));
     }
 
     PreySpawnSystem.prototype.tick = function() {
       if (Date.now() - this.nextSpawn >= 0) {
         this.spawnPrey();
-        return this.nextSpawn = Date.now() * MathUtils.randInt(this.minDelay(this.maxDelay));
+        return this.nextSpawn = Date.now() * MathUtil.randInt(this.minDelay(this.maxDelay));
       }
     };
 
@@ -30,7 +30,7 @@
       sprite.tint = 0x79cc26;
       prey.model.setSize(0.5);
       r = prey.model.size * Constants.TEX_UNIT;
-      prey.model.setPosition(new Vector(MathUtils.randInt(r, Screen.width / Constants.TEX_UNIT - r), MathUtils.randInt(r, Screen.height / Constants.TEX_UNIT - r)));
+      prey.model.setPosition(new Vector(MathUtil.randInt(r, Screen.width / Constants.TEX_UNIT - r), MathUtil.randInt(r, Screen.height / Constants.TEX_UNIT - r)));
       return this.game.animals.push(prey);
     };
 
