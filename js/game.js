@@ -27,7 +27,7 @@
         a = animal.model;
         console.log("a: " + a.acceleration);
         a.velocity.add(a.acceleration.mulCpy(dt));
-        if (a.velocity.length > a.maxSpeed) {
+        if (a.velocity.length() > a.maxSpeed) {
           a.velocity.normalize().mul(a.maxSpeed);
         }
         console.log("v: " + a.velocity);

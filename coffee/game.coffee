@@ -43,7 +43,7 @@ window.onload = ->
 
       #console.log "v: #{a.velocity}"
 
-      if a.velocity.length > a.maxSpeed
+      if a.velocity.length() > a.maxSpeed
         a.velocity.normalize().mul a.maxSpeed
 
       console.log "v: #{a.velocity}"
