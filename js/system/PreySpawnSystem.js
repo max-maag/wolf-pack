@@ -11,6 +11,7 @@
       this.game = game;
       this.minDelay = minDelay != null ? minDelay : 1000;
       this.maxDelay = maxDelay != null ? maxDelay : 10000;
+      this.spawnPrey = __bind(this.spawnPrey, this);
       this.tick = __bind(this.tick, this);
       this.nextSpawn = Date.now() * MathUtil.randInt(this.minDelay, this.maxDelay);
     }

@@ -7,7 +7,7 @@ class @PreySpawnSystem extends System
       @spawnPrey()
       @nextSpawn = Date.now() * MathUtil.randInt @minDelay, @maxDelay
 
-  spawnPrey: ->
+  spawnPrey: =>
     console.log 'Spawning prey'
     sprite = PIXI.Sprite.fromImage 'img/animalTex.png'
     prey = new AnimalController(new Animal sprite)
