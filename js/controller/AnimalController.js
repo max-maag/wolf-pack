@@ -18,12 +18,8 @@
         len = 1.0;
       }
       this.model.acceleration.set(dir.mul(this.model.maxAcc));
-      if (dir.x === 0) {
-        this.model.acceleration.x = -Constants.STOP_FORCE * this.model.velocity.x / dt;
-      }
-      if (dir.y === 0) {
-        return this.model.acceleration.y = -Constants.STOP_FORCE * this.model.velocity.y / dt;
-      }
+      this.model.acceleration.x -= Constants.STOP_FORCE * this.model.velocity.x / dt;
+      return this.model.acceleration.y -= Constants.STOP_FORCE * this.model.velocity.y / dt;
     };
 
     return AnimalController;

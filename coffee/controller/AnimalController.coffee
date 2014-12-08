@@ -12,8 +12,5 @@ class @AnimalController
 
     @model.acceleration.set dir.mul @model.maxAcc
 
-    if dir.x == 0
-      @model.acceleration.x = -Constants.STOP_FORCE * @model.velocity.x / dt
-
-    if dir.y == 0
-      @model.acceleration.y = -Constants.STOP_FORCE * @model.velocity.y / dt
+    @model.acceleration.x -= Constants.STOP_FORCE * @model.velocity.x / dt
+    @model.acceleration.y -= Constants.STOP_FORCE * @model.velocity.y / dt
