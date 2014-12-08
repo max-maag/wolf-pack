@@ -69,7 +69,7 @@ window.onload = ->
 
       unless v = a.velocity.length() == 0
         a.sprite.rotation =
-          Math.acos a.velocity.x/v - Math.PI/2.0
+          Math.acos(a.velocity.x/v) - Math.PI/2.0
 
       console.log "r: #{a.sprite.rotation}"
 

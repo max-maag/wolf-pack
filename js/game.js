@@ -48,7 +48,7 @@
         a.sprite.position.set(a.position);
         a.sprite.position.mul(Constants.UNIT);
         if (!(v = a.velocity.length() === 0)) {
-          a.sprite.rotation = Math.acos(a.velocity.x / v - Math.PI / 2.0);
+          a.sprite.rotation = Math.acos(a.velocity.x / v) - Math.PI / 2.0;
         }
         console.log("r: " + a.sprite.rotation);
       }
