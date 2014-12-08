@@ -7,7 +7,7 @@
 
     Constants.TEX_RAD = 82.0;
 
-    Constants.TEX_SCALE = UNIT / TEX_RAD;
+    Constants.TEX_SCALE = Constants.UNIT / Constants.TEX_RAD;
 
     return Constants;
 
