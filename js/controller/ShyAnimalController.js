@@ -16,7 +16,7 @@
     ShyAnimalController.prototype.think = function(dt) {
       this.direction.set(this.model.position);
       this.direction.sub(this.playerModel.position).normalize();
-      return ShyAnimalController.__super__.think.apply(this, arguments).think(dt);
+      return ShyAnimalController.__super__.think.call(this, dt);
     };
 
     return ShyAnimalController;
