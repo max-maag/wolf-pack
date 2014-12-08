@@ -14,6 +14,7 @@
       this.orientation = orientation != null ? orientation : 0.0;
       this.attitude = attitude != null ? attitude : 0.0;
       this.size = size != null ? size : 1;
+      this.getRadius = __bind(this.getRadius, this);
       this.setPosition = __bind(this.setPosition, this);
       this.setSize = __bind(this.setSize, this);
       this.sprite.position = this.position.mulCpy(Constants.UNIT);
@@ -30,6 +31,10 @@
       this.position.set(vec);
       this.sprite.position.set(vec);
       return this.sprite.position.mul(Constants.UNIT);
+    };
+
+    Animal.prototype.getRadius = function() {
+      return this.size * Constants.TEX_UNIT;
     };
 
     return Animal;

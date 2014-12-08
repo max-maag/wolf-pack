@@ -26,3 +26,6 @@ class @Animal
     @position.set vec
     @sprite.position.set vec
     @sprite.position.mul Constants.UNIT
+
+  getRadius: =>
+    @size * Constants.TEX_UNIT

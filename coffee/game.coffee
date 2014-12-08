@@ -83,7 +83,10 @@ class Game
 
     @stage.addChild @playerSprite
 
-    @playerController = new PlayerController(new Animal @playerSprite)
+    @playerController = new PlayerController(
+      new Animal @playerSprite
+      new Vector(Screen.width, Screen.height).mul 1/Constants.UNIT
+    )
     @playerController.model.setSize 0.5
 
     document.addEventListener "keydown", @playerController.handleInput
