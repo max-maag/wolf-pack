@@ -35,14 +35,14 @@
           a.position.x = r;
           a.velocity.x = 0;
         } else if (a.position.x + r >= Screen.width / Constants.UNIT) {
-          a.position.x = Screen.width - r;
+          a.position.x = Screen.width / Constants.UNIT - r;
           a.velocity.x = 0;
         }
         if (a.position.y <= r) {
           a.position.y = r;
           a.velocity.y = 0;
         } else if (a.position.y + r >= Screen.height / Constants.UNIT) {
-          a.position.y = Screen.height - r;
+          a.position.y = Screen.height / Constants.UNIT - r;
           a.velocity.y = 0;
         }
         a.sprite.position.set(a.position);
