@@ -1,12 +1,14 @@
 class PreySpawnSystem
-  constructor: (@minDelay = 1, @maxDelay = 10) ->
+  constructor: (@game, @minDelay = 1000, @maxDelay = 10000) ->
     @nextSpawn = Date.now() * MathUtils.randInt @minDelay @maxDelay
 
-  tick: ->
-    #TODO
-
+  tick: =>
+    if Date.now() - @nextSpawn >= 0
+      @spawnPrey()
+      @nextSpawn = Date.now() * MathUtils.randInt @minDelay @maxDelay
 
   spawnPrey: ->
+    console.log 'Spawning prey'
     sprite = PIXI.Sprite.fromImage 'img/animalTex.png'
     prey = new AnimalController(new Animal sprite)
     sprite.tint = 0x79cc26
@@ -18,4 +20,4 @@ class PreySpawnSystem
       MathUtils.randInt r, Screen.width/Constants.TEX_UNIT - r
       MathUtils.randInt r, Screen.height/Constants.TEX_UNIT - r
     ))
-    animals.push prey
+    @game.animals.push prey

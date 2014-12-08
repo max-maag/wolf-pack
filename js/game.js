@@ -82,6 +82,7 @@
       document.addEventListener("keydown", this.playerController.handleInput);
       document.addEventListener("keyup", this.playerController.handleInput);
       this.animals = [this.playerController];
+      this.systems = [new PreySpawnSystem(this)];
       this.loader.onComplete = (function(_this) {
         return function() {
           return requestAnimFrame(function() {

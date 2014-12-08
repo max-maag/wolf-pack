@@ -88,6 +88,10 @@ class Game
 
     @animals = [@playerController]
 
+    @systems = [
+      new PreySpawnSystem(this)
+    ]
+
     @loader.onComplete = =>
       requestAnimFrame => @step()
 
