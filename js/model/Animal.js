@@ -7,7 +7,7 @@
       this.velocity = velocity != null ? velocity : new Vector(0.0, 0.0);
       this.acceleration = acceleration != null ? acceleration : new Vector(0.0, 0.0);
       this.maxSpeed = maxSpeed != null ? maxSpeed : 20;
-      this.maxAcc = maxAcc != null ? maxAcc : 10;
+      this.maxAcc = maxAcc != null ? maxAcc : 50;
       this.maxTurnSpeed = maxTurnSpeed != null ? maxTurnSpeed : 1.0;
       this.orientation = orientation != null ? orientation : 0.0;
       this.attitude = attitude != null ? attitude : 0.0;
