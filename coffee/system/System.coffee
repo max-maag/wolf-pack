@@ -1,2 +1,2 @@
-class System
+class @System
   tick: ->

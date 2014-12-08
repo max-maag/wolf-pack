@@ -1,4 +1,4 @@
-class PreySpawnSystem
+class @PreySpawnSystem extends System
   constructor: (@game, @minDelay = 1000, @maxDelay = 10000) ->
     @nextSpawn = Date.now() * MathUtils.randInt @minDelay @maxDelay
 
