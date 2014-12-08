@@ -92,7 +92,7 @@ class Game
 
     @stage.addChild @playerSprite
 
-    @playerController = new PlayerController new Hunter(
+    @playerController = new PlayerController this, new Hunter(
       @playerSprite
       new Vector(Screen.width, Screen.height).mul 1.0/2.0/Constants.UNIT
     )
