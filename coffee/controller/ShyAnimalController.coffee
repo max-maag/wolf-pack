@@ -8,3 +8,5 @@ class @ShyAnimalController extends AnimalController
     @direction
       .sub @playerModel.position
       .normalize()
+
+    super.think dt
