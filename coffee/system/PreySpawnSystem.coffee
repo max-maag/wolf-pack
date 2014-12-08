@@ -21,3 +21,4 @@ class @PreySpawnSystem extends System
       MathUtil.randInt r, Screen.height/Constants.UNIT - r
     ))
     @game.animals.push prey
+    @game.stage.addChild sprite

@@ -32,7 +32,8 @@
       prey.model.setSize(0.5);
       r = prey.model.size * Constants.TEX_UNIT;
       prey.model.setPosition(new Vector(MathUtil.randInt(r, Screen.width / Constants.UNIT - r), MathUtil.randInt(r, Screen.height / Constants.UNIT - r)));
-      return this.game.animals.push(prey);
+      this.game.animals.push(prey);
+      return this.game.stage.addChild(sprite);
     };
 
     return PreySpawnSystem;
