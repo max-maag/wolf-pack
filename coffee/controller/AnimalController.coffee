@@ -10,4 +10,4 @@ class @AnimalController
 
     #console.log "d: #{@direction}"
     @model.acceleration = @direction.mulCpy @model.maxAcc
-    @direction.set 0
+    #@direction.set 0

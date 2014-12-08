@@ -16,8 +16,7 @@
         this.direction.normalize();
         len = 1.0;
       }
-      this.model.acceleration = this.direction.mulCpy(this.model.maxAcc);
-      return this.direction.set(0);
+      return this.model.acceleration = this.direction.mulCpy(this.model.maxAcc);
     };
 
     return AnimalController;
