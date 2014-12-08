@@ -12,16 +12,17 @@
     AnimalController.prototype.think = function(dt) {
       var dir, len;
       len = this.direction.length();
-      if (len === 0) {
-        this.model.acceleration.set(this.model.velocity);
-        return this.model.acceleration.mul(-0.9 / dt);
-      } else {
-        dir = this.direction.clone();
-        if (len > 1.0) {
-          dir.normalize();
-          len = 1.0;
-        }
-        return this.model.acceleration.set(dir.mul(this.model.maxAcc));
+      dir = this.direction.clone();
+      if (len > 1.0) {
+        dir.normalize();
+        len = 1.0;
+        this.model.acceleration.set(dir.mul(this.model.maxAcc));
+      }
+      if (dir.x === 0) {
+        this.model.acceleration.x = -Constants.STOP_FORCE * this.model.velocity.x / dt;
+      }
+      if (dir.y === 0) {
+        return this.model.acceleration.y = -Constants.STOP_FORCE * this.model.velocity.y / dt;
       }
     };
 

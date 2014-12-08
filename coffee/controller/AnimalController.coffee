@@ -4,15 +4,16 @@ class @AnimalController
 
   think: (dt) =>
     len = @direction.length()
-    if len is 0
-      @model.acceleration.set @model.velocity
-      @model.acceleration.mul(-0.9/dt)
-    else
-      dir = @direction.clone()
-      if len > 1.0
-        dir.normalize()
-        len = 1.0
+    dir = @direction.clone()
 
-      #console.log "d: #{@direction}"
+    if len > 1.0
+      dir.normalize()
+      len = 1.0
+
       @model.acceleration.set dir.mul @model.maxAcc
-      #@direction.set 0
+
+    if dir.x == 0
+      @model.acceleration.x = -Constants.STOP_FORCE * @model.velocity.x / dt
+
+    if dir.y == 0
+      @model.acceleration.y = -Constants.STOP_FORCE * @model.velocity.y / dt

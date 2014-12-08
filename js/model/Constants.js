@@ -11,6 +11,8 @@
 
     Constants.TEX_SCALE = Constants.UNIT / Constants.TEX_RAD;
 
+    Constants.STOP_FORCE = 0.7;
+
     return Constants;
 
   })();
