@@ -42,6 +42,9 @@ class Game
 
       #console.log "v.x: #{a.velocity.x}, |v|: #{v}, r: #{a.sprite.rotation}"
 
+    for system in @systems
+      system.tick()
+      
     @lastFrame += dt * 1000
 
 

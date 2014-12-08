@@ -12,7 +12,7 @@
     }
 
     Game.prototype.update = function() {
-      var a, animal, dt, r, v, _i, _j, _len, _len1, _ref, _ref1;
+      var a, animal, dt, r, system, v, _i, _j, _k, _len, _len1, _len2, _ref, _ref1, _ref2;
       dt = (Date.now() - this.lastFrame) / 1000;
       _ref = this.animals;
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -49,6 +49,11 @@
         if (v !== 0) {
           a.sprite.rotation = Math.atan2(a.velocity.y / v, a.velocity.x / v) + Math.PI / 2;
         }
+      }
+      _ref2 = this.systems;
+      for (_k = 0, _len2 = _ref2.length; _k < _len2; _k++) {
+        system = _ref2[_k];
+        system.tick();
       }
       return this.lastFrame += dt * 1000;
     };
