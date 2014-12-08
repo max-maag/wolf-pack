@@ -29,7 +29,7 @@ window.onload = ->
   update = ->
     dt = (Date.now() - lastFrame)/1000
 
-    console.log "dt: #{dt}"
+    #console.log "dt: #{dt}"
 
     for animal in animals
       animal.think(dt)
@@ -37,7 +37,7 @@ window.onload = ->
     for animal in animals
       a = animal.model
 
-      console.log "a: #{a.acceleration}"
+      #console.log "a: #{a.acceleration}"
 
       a.velocity.add(a.acceleration.mulCpy dt)
 
@@ -48,7 +48,7 @@ window.onload = ->
 
       a.position.add(a.velocity.mulCpy dt)
 
-      r = a.size * Constants.TEX_RAD
+      r = a.size * Constants.TEX_UNIT
       if a.position.x <= r
         a.position.x = r
         a.velocity.x = 0
