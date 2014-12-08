@@ -15,7 +15,13 @@
 
     ShyAnimalController.prototype.think = function(dt) {
       this.direction.set(this.model.position);
-      this.direction.sub(this.playerModel.position).normalize();
+      this.direction.sub(this.playerModel.position);
+      if (this.direction.length() < 5) {
+        this.direction.normalize();
+      } else {
+        this.direction.set(0);
+      }
+      this.direction.set(MathUtil.randInt(0.0, 0.1, MathUtil.randInt(0.0, 0.1)));
       return ShyAnimalController.__super__.think.call(this, dt);
     };
 

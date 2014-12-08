@@ -3,10 +3,18 @@ class @ShyAnimalController extends AnimalController
     super model
 
   think: (dt) =>
-    @direction
-      .set @model.position
-    @direction
-      .sub @playerModel.position
-      .normalize()
+    @direction.set @model.position
+    @direction.sub @playerModel.position
+
+    if @direction.length() < 5
+      @direction.normalize()
+    else
+      @direction.set 0
+
+    # random movement
+    @direction.set(
+      MathUtil.randInt 0.0, 0.1,
+      MathUtil.randInt 0.0, 0.1
+    )
 
     super dt
