@@ -33,7 +33,7 @@
         }
         console.log("v: " + a.velocity);
         a.position.add(a.velocity.mulCpy(dt));
-        r = a.size * Constants.TEX_RAD / 2;
+        r = a.size * Constants.TEX_RAD;
         if (a.position.x <= r) {
           a.position.x = r;
           a.velocity.x = 0;
@@ -48,6 +48,8 @@
           a.position.y = Screen.height - r;
           a.velocity.y = 0;
         }
+        a.sprite.position.set(a.position);
+        a.sprite.position.mul(Constants.UNIT);
       }
       return lastFrame += dt * 1000;
     };

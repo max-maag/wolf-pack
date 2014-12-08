@@ -12,7 +12,7 @@
       this.orientation = orientation != null ? orientation : 0.0;
       this.attitude = attitude != null ? attitude : 0.0;
       this.size = size != null ? size : 1;
-      this.sprite.position = this.position;
+      this.sprite.position = this.position.mulCpy(Constants.UNIT);
       this.sprite.scale = new Vector(this.size * Constants.TEX_SCALE, this.size * Constants.TEX_SCALE);
       this.sprite.anchor = new Vector(0.5, 0.5);
     }

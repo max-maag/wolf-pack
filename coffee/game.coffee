@@ -48,7 +48,7 @@ window.onload = ->
 
       a.position.add(a.velocity.mulCpy dt)
 
-      r = a.size * Constants.TEX_RAD/2
+      r = a.size * Constants.TEX_RAD
       if a.position.x <= r
         a.position.x = r
         a.velocity.x = 0
@@ -64,7 +64,8 @@ window.onload = ->
         a.velocity.y = 0
 
       #console.log "p: #{a.position}"
-      #a.sprite.position = a.position
+      a.sprite.position.set a.position
+      a.sprite.position.mul Constants.UNIT
       #console.log "s: #{a.sprite.position}"
 
     lastFrame += dt * 1000

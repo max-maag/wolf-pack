@@ -11,7 +11,7 @@ class @Animal
     @attitude = 0.0
     @size = 1
     ) ->
-    @sprite.position = @position
+    @sprite.position = @position.mulCpy(Constants.UNIT)
     @sprite.scale = new Vector(
       @size * Constants.TEX_SCALE,
       @size * Constants.TEX_SCALE
