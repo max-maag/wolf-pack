@@ -16,7 +16,7 @@
         this.model.acceleration.set(this.model.velocity);
         return this.model.acceleration.mul(-0.9 / dt);
       } else {
-        dir = this.direction.copy();
+        dir = this.direction.clone();
         if (len > 1.0) {
           dir.normalize();
           len = 1.0;

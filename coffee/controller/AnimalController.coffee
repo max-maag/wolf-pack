@@ -8,7 +8,7 @@ class @AnimalController
       @model.acceleration.set @model.velocity
       @model.acceleration.mul(-0.9/dt)
     else
-      dir = @direction.copy()
+      dir = @direction.clone()
       if len > 1.0
         dir.normalize()
         len = 1.0
