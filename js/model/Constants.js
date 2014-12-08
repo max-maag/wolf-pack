@@ -5,7 +5,7 @@
 
     Constants.UNIT = Screen.width / 100.0;
 
-    Constants.TEX_RAD = 82.0;
+    Constants.TEX_RAD = 41.0;
 
     Constants.TEX_SCALE = Constants.UNIT / Constants.TEX_RAD;
 

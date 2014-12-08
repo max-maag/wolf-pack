@@ -14,6 +14,7 @@
       this.size = size != null ? size : 1;
       this.sprite.position = this.position;
       this.sprite.scale = new Vector(this.size * Constants.TEX_SCALE, this.size * Constants.TEX_SCALE);
+      this.sprite.anchor = new Vector(0.5, 0.5);
     }
 
     return Animal;
