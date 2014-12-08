@@ -89,7 +89,7 @@ class Game
     @animals = [@playerController]
 
     @loader.onComplete = ->
-      requestAnimFrame -> step()
+      requestAnimFrame -> @step()
 
     @loader.load()
 

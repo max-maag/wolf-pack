@@ -84,7 +84,7 @@
       this.animals = [this.playerController];
       this.loader.onComplete = function() {
         return requestAnimFrame(function() {
-          return step();
+          return this.step();
         });
       };
       return this.loader.load();
