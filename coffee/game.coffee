@@ -49,7 +49,7 @@ window.onload = ->
       #console.log "v: #{a.velocity}"
       a.position.add(a.velocity.mulCpy dt)
 
-      r = a.size * Constants.TEX_RAD
+      r = a.size * Constants.TEX_RAD/2
       if a.position.x <= r
         a.position.x = r
         a.velocity.x = 0

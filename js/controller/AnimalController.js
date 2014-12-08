@@ -16,6 +16,7 @@
         this.direction.normalize();
         len = 1.0;
       }
+      this.direction.set(0);
       return this.model.acceleration = this.direction.mulCpy(this.model.maxAcc);
     };
 
