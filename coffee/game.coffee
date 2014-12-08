@@ -49,7 +49,7 @@ class Game
   render: =>
     unless @stillRendering
       @stillRendering = true
-      @renderer.render stage
+      @renderer.render @stage
       @stillRendering = false
 
 

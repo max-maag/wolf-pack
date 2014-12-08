@@ -56,7 +56,7 @@
     Game.prototype.render = function() {
       if (!this.stillRendering) {
         this.stillRendering = true;
-        this.renderer.render(stage);
+        this.renderer.render(this.stage);
         return this.stillRendering = false;
       }
     };
