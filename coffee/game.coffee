@@ -51,14 +51,14 @@ window.onload = ->
 
       r = a.size * Constants.TEX_RAD
       if a.position.x <= r
-        a.position.x = 0
+        a.position.x = r
         a.velocity.x = 0
       else if a.position.x + r >= Screen.width
         a.position.x = Screen.width - r
         a.velocity.x = 0
 
       if a.position.y <= r
-        a.position.y = 0
+        a.position.y = r
         a.velocity.y = 0
       else if a.position.y + r >= Screen.height
         a.position.y = Screen.height - r
