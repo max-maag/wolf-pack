@@ -31,7 +31,7 @@
       sprite.tint = 0x79cc26;
       prey.model.setSize(0.5);
       r = prey.model.size * Constants.TEX_UNIT;
-      prey.model.setPosition(new Vector(MathUtil.randInt(r, Screen.width / Constants.TEX_UNIT - r), MathUtil.randInt(r, Screen.height / Constants.TEX_UNIT - r)));
+      prey.model.setPosition(new Vector(MathUtil.randInt(r, Screen.width / Constants.UNIT - r), MathUtil.randInt(r, Screen.height / Constants.UNIT - r)));
       return this.game.animals.push(prey);
     };
 

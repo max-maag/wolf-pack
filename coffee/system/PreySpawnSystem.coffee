@@ -17,7 +17,7 @@ class @PreySpawnSystem extends System
 
     r = prey.model.size * Constants.TEX_UNIT
     prey.model.setPosition(new Vector(
-      MathUtil.randInt r, Screen.width/Constants.TEX_UNIT - r
-      MathUtil.randInt r, Screen.height/Constants.TEX_UNIT - r
+      MathUtil.randInt r, Screen.width/Constants.UNIT - r
+      MathUtil.randInt r, Screen.height/Constants.UNIT - r
     ))
     @game.animals.push prey
