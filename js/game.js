@@ -25,10 +25,12 @@
       for (_j = 0, _len1 = animals.length; _j < _len1; _j++) {
         animal = animals[_j];
         a = animal.model;
+        console.log("a: " + a.acceleration);
         a.velocity.add(a.acceleration.mulCpy(dt));
         if (a.velocity.length > a.maxSpeed) {
           a.velocity.normalize().mul(a.maxSpeed);
         }
+        console.log("v: " + a.velocity);
         a.position.add(a.velocity.mulCpy(dt));
         r = a.size * Constants.TEX_RAD / 2;
         if (a.position.x <= r) {
