@@ -49,7 +49,7 @@
         a.sprite.position.mul(Constants.UNIT);
         v = a.velocity.length();
         if (v !== 0) {
-          a.sprite.rotation = 0;
+          a.sprite.rotation = Math.PI / 2;
         }
         console.log("v.x: " + a.velocity.x + ", |v|: " + v + ", r: " + a.sprite.rotation);
       }
