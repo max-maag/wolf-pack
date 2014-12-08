@@ -21,10 +21,14 @@ class @ShyAnimalController extends AnimalController
     if @nextMoveTarget.y > Screen.height/Constants.UNIT - 1
       @nextMoveTarget.y = Screen.height/Constants.UNIT - 1
 
+
+
   constructor: (@game, model) ->
-    super model
+    super
     @playerModel = @game.playerController.model
     @calcNextTarget()
+
+
 
   think: (dt) =>
     @direction.set @model.position

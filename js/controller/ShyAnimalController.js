@@ -29,7 +29,7 @@
       this.game = game;
       this.think = __bind(this.think, this);
       this.calcNextTarget = __bind(this.calcNextTarget, this);
-      ShyAnimalController.__super__.constructor.call(this, model);
+      ShyAnimalController.__super__.constructor.apply(this, arguments);
       this.playerModel = this.game.playerController.model;
       this.calcNextTarget();
     }
