@@ -9,14 +9,17 @@
       this.direction = new Vector(0.0, 0.0);
     }
 
-    AnimalController.prototype.think = function() {
+    AnimalController.prototype.think = function(dt) {
       var len;
       len = this.direction.length();
-      if (len > 1.0) {
+      if (len === 0) {
+        this.model.acceleration.set(this.model.velocity.x, this.model.velocity.y);
+        return this.model.acceleration.mul(-0.9 / dt);
+      } else if (len > 1.0) {
         this.direction.normalize();
         len = 1.0;
+        return this.model.acceleration = this.direction.mulCpy(this.model.maxAcc);
       }
-      return this.model.acceleration = this.direction.mulCpy(this.model.maxAcc);
     };
 
     return AnimalController;

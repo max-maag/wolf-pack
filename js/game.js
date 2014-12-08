@@ -20,7 +20,7 @@
       dt = (Date.now() - lastFrame) / 1000;
       for (_i = 0, _len = animals.length; _i < _len; _i++) {
         animal = animals[_i];
-        animal.think();
+        animal.think(dt);
       }
       for (_j = 0, _len1 = animals.length; _j < _len1; _j++) {
         animal = animals[_j];

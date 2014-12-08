@@ -32,7 +32,7 @@ window.onload = ->
     #console.log "dt: #{dt}"
 
     for animal in animals
-      animal.think()
+      animal.think(dt)
 
     for animal in animals
       a = animal.model
