@@ -28,7 +28,7 @@
     };
 
     AnimalController.prototype.die = function(reasonOfDeath) {
-      this.reasonOfDeath = reasonOfDeath;
+      this.model.reasonOfDeath = reasonOfDeath;
       this.model.dead = true;
       return this.model.sprite.tint = 0x3e3e3e;
     };

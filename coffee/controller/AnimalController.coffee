@@ -18,6 +18,7 @@ class @AnimalController
     @model.acceleration.x -= Constants.STOP_FORCE * @model.velocity.x / dt
     @model.acceleration.y -= Constants.STOP_FORCE * @model.velocity.y / dt
 
-  die: (@reasonOfDeath) =>
+  die: (reasonOfDeath) =>
+    @model.reasonOfDeath = reasonOfDeath
     @model.dead = true
     @model.sprite.tint = 0x3e3e3e
