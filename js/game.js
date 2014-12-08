@@ -82,7 +82,7 @@
       this.playerSprite = PIXI.Sprite.fromImage('img/animalTex.png');
       this.playerSprite.tint = 0xcccccc;
       this.stage.addChild(this.playerSprite);
-      this.playerController = new PlayerController(new Animal(this.playerSprite), new Vector(Screen.width, Screen.height).mul(1.0 / Constants.UNIT));
+      this.playerController = new PlayerController(new Animal(this.playerSprite, new Vector(Screen.width, Screen.height).mul(1.0 / Constants.UNIT)));
       this.playerController.model.setSize(0.5);
       document.addEventListener("keydown", this.playerController.handleInput);
       document.addEventListener("keyup", this.playerController.handleInput);

@@ -83,8 +83,8 @@ class Game
 
     @stage.addChild @playerSprite
 
-    @playerController = new PlayerController(
-      new Animal @playerSprite
+    @playerController = new PlayerController new Animal(
+      @playerSprite
       new Vector(Screen.width, Screen.height).mul 1.0/Constants.UNIT
     )
     @playerController.model.setSize 0.5
