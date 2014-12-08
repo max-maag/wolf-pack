@@ -57,7 +57,7 @@ class Game
   step: =>
     @update()
     @render()
-    requestAnimFrame step
+    requestAnimFrame @step
 
 
 
@@ -89,7 +89,7 @@ class Game
     @animals = [@playerController]
 
     @loader.onComplete = ->
-      requestAnimFrame -> @step()
+      requestAnimFrame => @step()
 
     @loader.load()
 

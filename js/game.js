@@ -64,7 +64,7 @@
     Game.prototype.step = function() {
       this.update();
       this.render();
-      return requestAnimFrame(step);
+      return requestAnimFrame(this.step);
     };
 
     Game.prototype.init = function() {
@@ -83,9 +83,11 @@
       document.addEventListener("keyup", this.playerController.handleInput);
       this.animals = [this.playerController];
       this.loader.onComplete = function() {
-        return requestAnimFrame(function() {
-          return this.step();
-        });
+        return requestAnimFrame((function(_this) {
+          return function() {
+            return _this.step();
+          };
+        })(this));
       };
       return this.loader.load();
     };
