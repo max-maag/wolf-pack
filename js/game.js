@@ -12,6 +12,7 @@
     playerSprite.tint = 0xcccccc;
     stage.addChild(playerSprite);
     playerController = new PlayerController(new Animal(playerSprite));
+    playerController.model.setSize(0.5);
     document.addEventListener("keydown", playerController.handleInput);
     document.addEventListener("keyup", playerController.handleInput);
     animals = [playerController];
