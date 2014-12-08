@@ -4,6 +4,13 @@
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
   Game = (function() {
+    function Game() {
+      this.init = __bind(this.init, this);
+      this.step = __bind(this.step, this);
+      this.render = __bind(this.render, this);
+      this.update = __bind(this.update, this);
+    }
+
     Game.prototype.update = function() {
       var a, animal, dt, r, v, _i, _j, _len, _len1, _ref, _ref1;
       dt = (Date.now() - this.lastFrame) / 1000;
@@ -60,10 +67,7 @@
       return requestAnimFrame(step);
     };
 
-    function Game() {
-      this.step = __bind(this.step, this);
-      this.render = __bind(this.render, this);
-      this.update = __bind(this.update, this);
+    Game.prototype.init = function() {
       this.stage = new PIXI.Stage(0xffffff);
       this.renderer = PIXI.autoDetectRenderer(Screen.width, Screen.height);
       this.loader = new PIXI.AssetLoader(['img/animalTex.png']);
@@ -83,15 +87,15 @@
           return this.step;
         });
       };
-      this.loader.load();
-    }
+      return this.loader.load();
+    };
 
     return Game;
 
   })();
 
   window.onload = function() {
-    return new Game();
+    return (new Game()).init();
   };
 
 }).call(this);

@@ -61,7 +61,7 @@ class Game
 
 
 
-  constructor: ->
+  init: =>
     @stage = new PIXI.Stage 0xffffff
     @renderer = PIXI.autoDetectRenderer Screen.width, Screen.height
 
@@ -95,4 +95,4 @@ class Game
 
 
 window.onload = ->
-  new Game()
+  (new Game()).init()
