@@ -13,8 +13,8 @@ class @ShyAnimalController extends AnimalController
 
     # random movement
     @direction.set(
-      MathUtil.randInt 0.0, 0.1,
-      MathUtil.randInt 0.0, 0.1
+      MathUtil.randInt -0.1, 0.1,
+      MathUtil.randInt -0.1, 0.1
     )
 
     super dt
