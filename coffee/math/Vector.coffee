@@ -5,9 +5,9 @@ class @Vector
     new Vector(@x, @y)
 
   set: (x = 0, y)=>
-    if x instanceof Vector
+    if typeof x is "object"
       @x = x.x
-      @y = y.x
+      @y = x.y
     else
       @x = x
       @y = y ? x

@@ -26,9 +26,9 @@
       if (x == null) {
         x = 0;
       }
-      if (x instanceof Vector) {
+      if (typeof x === "object") {
         this.x = x.x;
-        return this.y = y.x;
+        return this.y = x.y;
       } else {
         this.x = x;
         return this.y = y != null ? y : x;
