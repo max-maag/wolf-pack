@@ -12,6 +12,7 @@
       this.minDelay = minDelay != null ? minDelay : 1000;
       this.maxDelay = maxDelay != null ? maxDelay : 10000;
       this.spawnPrey = __bind(this.spawnPrey, this);
+      this.getPrey = __bind(this.getPrey, this);
       this.tick = __bind(this.tick, this);
       this.nextSpawn = Date.now() + MathUtil.randInt(this.minDelay, this.maxDelay);
     }
@@ -23,12 +24,15 @@
       }
     };
 
+    PreySpawnSystem.prototype.getPrey = function() {
+      return new ShyAnimalController(this.game.playerController.model, new Animal(PIXI.Sprite.fromImage('img/animalTex.png')));
+    };
+
     PreySpawnSystem.prototype.spawnPrey = function() {
-      var prey, r, sprite;
+      var prey, r;
       console.log('Spawning prey');
-      sprite = PIXI.Sprite.fromImage('img/animalTex.png');
-      prey = new AnimalController(new Animal(sprite));
-      sprite.tint = 0x79cc26;
+      prey = getPrey();
+      prey.model.sprite.tint = 0x79cc26;
       prey.model.setSize(0.5);
       r = prey.model.size * Constants.TEX_UNIT;
       prey.model.setPosition(new Vector(MathUtil.randInt(r, Screen.width / Constants.UNIT - r), MathUtil.randInt(r, Screen.height / Constants.UNIT - r)));

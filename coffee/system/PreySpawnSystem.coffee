@@ -7,11 +7,16 @@ class @PreySpawnSystem extends System
       @spawnPrey()
       @nextSpawn = Date.now() + MathUtil.randInt @minDelay, @maxDelay
 
+  getPrey: () =>
+    return new ShyAnimalController(
+      @game.playerController.model,
+      new Animal PIXI.Sprite.fromImage 'img/animalTex.png'
+    )
+
   spawnPrey: =>
     console.log 'Spawning prey'
-    sprite = PIXI.Sprite.fromImage 'img/animalTex.png'
-    prey = new AnimalController(new Animal sprite)
-    sprite.tint = 0x79cc26
+    prey = getPrey()
+    prey.model.sprite.tint = 0x79cc26
     prey.model.setSize 0.5
 
 

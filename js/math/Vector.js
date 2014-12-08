@@ -9,6 +9,8 @@
       this.toString = __bind(this.toString, this);
       this.normalize = __bind(this.normalize, this);
       this.dot = __bind(this.dot, this);
+      this.subCpy = __bind(this.subCpy, this);
+      this.sub = __bind(this.sub, this);
       this.addCpy = __bind(this.addCpy, this);
       this.add = __bind(this.add, this);
       this.mulCpy = __bind(this.mulCpy, this);
@@ -62,6 +64,21 @@
 
     Vector.prototype.addCpy = function(val) {
       return this.clone().add(val);
+    };
+
+    Vector.prototype.sub = function(val) {
+      if (val instanceof Vector) {
+        this.x -= val.x;
+        return this.y -= val.y;
+      } else {
+        this.x -= val;
+        this.y -= val;
+        return this;
+      }
+    };
+
+    Vector.prototype.subCpy = function(val) {
+      return this.clone().sub(val);
     };
 
     Vector.prototype.dot = function(vec) {

@@ -36,6 +36,19 @@ class @Vector
   addCpy: (val) =>
     @clone().add val
 
+  sub: (val) =>
+    if val instanceof Vector
+      @x -= val.x
+      @y -= val.y
+    else
+      @x -= val
+      @y -= val
+
+      return this
+
+  subCpy: (val) =>
+    @clone().sub val
+
   dot: (vec) =>
     @x*vec.x + @y*vec.y
 
