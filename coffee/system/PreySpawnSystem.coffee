@@ -15,7 +15,7 @@ class @PreySpawnSystem extends System
 
   spawnPrey: =>
     console.log 'Spawning prey'
-    prey = getPrey()
+    prey = @getPrey()
     prey.model.sprite.tint = 0x79cc26
     prey.model.setSize 0.5
 

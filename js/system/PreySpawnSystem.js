@@ -31,7 +31,7 @@
     PreySpawnSystem.prototype.spawnPrey = function() {
       var prey, r;
       console.log('Spawning prey');
-      prey = getPrey();
+      prey = this.getPrey();
       prey.model.sprite.tint = 0x79cc26;
       prey.model.setSize(0.5);
       r = prey.model.size * Constants.TEX_UNIT;
