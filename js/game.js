@@ -82,13 +82,13 @@
       document.addEventListener("keydown", this.playerController.handleInput);
       document.addEventListener("keyup", this.playerController.handleInput);
       this.animals = [this.playerController];
-      this.loader.onComplete = function() {
-        return requestAnimFrame((function(_this) {
-          return function() {
+      this.loader.onComplete = (function(_this) {
+        return function() {
+          return requestAnimFrame(function() {
             return _this.step();
-          };
-        })(this));
-      };
+          });
+        };
+      })(this);
       return this.loader.load();
     };
 
