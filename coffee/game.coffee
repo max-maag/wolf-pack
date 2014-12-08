@@ -70,7 +70,7 @@ class Game
     #gameContainer = new PIXI.SpriteBatch()
     #stage.addChild gameContainer
 
-    document.body.appendChild renderer.view
+    document.body.appendChild @renderer.view
 
     @stillRendering = false
     @lastFrame = Date.now()
@@ -78,20 +78,20 @@ class Game
     @playerSprite = PIXI.Sprite.fromImage 'img/animalTex.png'
     @playerSprite.tint = 0xcccccc
 
-    stage.addChild playerSprite
+    @stage.addChild @playerSprite
 
     @playerController = new PlayerController(new Animal playerSprite)
     @playerController.model.setSize 0.5
 
-    document.addEventListener "keydown", playerController.handleInput
-    document.addEventListener "keyup", playerController.handleInput
+    document.addEventListener "keydown", @playerController.handleInput
+    document.addEventListener "keyup", @playerController.handleInput
 
-    @animals = [playerController]
+    @animals = [@playerController]
 
-    loader.onComplete ->
+    @loader.onComplete ->
       requestAnimFrame @step
 
-    loader.load()
+    @loader.load()
 
 
 window.onload = ->

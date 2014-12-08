@@ -63,21 +63,21 @@
       this.stage = new PIXI.Stage(0xffffff);
       this.renderer = PIXI.autoDetectRenderer(Screen.width, Screen.height);
       this.loader = new PIXI.AssetLoader(['img/animalTex.png']);
-      document.body.appendChild(renderer.view);
+      document.body.appendChild(this.renderer.view);
       this.stillRendering = false;
       this.lastFrame = Date.now();
       this.playerSprite = PIXI.Sprite.fromImage('img/animalTex.png');
       this.playerSprite.tint = 0xcccccc;
-      stage.addChild(playerSprite);
+      this.stage.addChild(this.playerSprite);
       this.playerController = new PlayerController(new Animal(playerSprite));
       this.playerController.model.setSize(0.5);
-      document.addEventListener("keydown", playerController.handleInput);
-      document.addEventListener("keyup", playerController.handleInput);
-      this.animals = [playerController];
-      loader.onComplete(function() {
+      document.addEventListener("keydown", this.playerController.handleInput);
+      document.addEventListener("keyup", this.playerController.handleInput);
+      this.animals = [this.playerController];
+      this.loader.onComplete(function() {
         return requestAnimFrame(this.step);
       });
-      loader.load();
+      this.loader.load();
     }
 
     return Game;
