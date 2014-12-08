@@ -37,11 +37,11 @@ window.onload = ->
     for animal in animals
       a = animal.model
 
-      #console.log "a: #{a.acceleration}"
+      console.log "a: #{a.acceleration}"
 
       a.velocity.add(a.acceleration.mulCpy dt)
 
-      #console.log "v: #{a.velocity}"
+      console.log "v: #{a.velocity}"
 
       if a.velocity.length() > a.maxSpeed
         a.velocity.normalize().mul a.maxSpeed
