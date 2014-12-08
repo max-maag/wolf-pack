@@ -25,18 +25,20 @@
     };
 
     PreySpawnSystem.prototype.getPrey = function() {
-      return new ShyAnimalController(this.game.playerController.model, new Animal(PIXI.Sprite.fromImage('img/animalTex.png')));
+      var a, r;
+      a = new Animal(PIXI.Sprite.fromImage('img/animalTex.png'));
+      a.sprite.tint = 0x79cc26;
+      a.setSize(0.3);
+      a.maxSpeed /= 2.0;
+      r = a.size * Constants.TEX_UNIT;
+      a.setPosition(new Vector(MathUtil.randInt(r, Screen.width / Constants.UNIT - r), MathUtil.randInt(r, Screen.height / Constants.UNIT - r)));
+      return new ShyAnimalController(this.game.playerController.model, a);
     };
 
     PreySpawnSystem.prototype.spawnPrey = function() {
-      var prey, r;
+      var prey;
       console.log('Spawning prey');
       prey = this.getPrey();
-      prey.model.sprite.tint = 0x79cc26;
-      prey.model.setSize(0.3);
-      prey.model.maxSpeed /= 2.0;
-      r = prey.model.size * Constants.TEX_UNIT;
-      prey.model.setPosition(new Vector(MathUtil.randInt(r, Screen.width / Constants.UNIT - r), MathUtil.randInt(r, Screen.height / Constants.UNIT - r)));
       this.game.animals.push(prey);
       return this.game.stage.addChild(prey.model.sprite);
     };

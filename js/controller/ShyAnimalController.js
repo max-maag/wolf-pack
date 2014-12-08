@@ -37,6 +37,7 @@
       this.direction.sub(this.playerModel.position);
       if (this.direction.length() < 5) {
         this.direction.normalize();
+        this.netMoveTime = 0;
       } else if (Date.now() - this.nextMoveTime > 0) {
         if (this.model.position.subCpy(this.nextMoveTarget).length() < 0.5) {
           this.calcNextTarget();
