@@ -5,13 +5,14 @@ class @AnimalController
   think: (dt) =>
     len = @direction.length()
     if len is 0
-      @model.acceleration.set @model.velocity.x, @model.velocity.y
+      @model.acceleration.set @model.velocity
       @model.acceleration.mul(-0.9/dt)
     else
+      dir = @direction.copy()
       if len > 1.0
-        @direction.normalize()
+        dir.normalize()
         len = 1.0
 
       #console.log "d: #{@direction}"
-      @model.acceleration = @direction.mulCpy @model.maxAcc
+      @model.acceleration.set dir.mul @model.maxAcc
       #@direction.set 0

@@ -5,8 +5,12 @@ class @Vector
     new Vector(@x, @y)
 
   set: (x = 0, y)=>
-    @x = x
-    @y = y ? x
+    if x instanceof Vector
+      @x = x.x
+      @y = y.x
+    else
+      @x = x
+      @y = y ? x
 
   length: =>
     Math.sqrt @x*@x + @y*@y

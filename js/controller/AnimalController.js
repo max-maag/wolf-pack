@@ -10,17 +10,18 @@
     }
 
     AnimalController.prototype.think = function(dt) {
-      var len;
+      var dir, len;
       len = this.direction.length();
       if (len === 0) {
-        this.model.acceleration.set(this.model.velocity.x, this.model.velocity.y);
+        this.model.acceleration.set(this.model.velocity);
         return this.model.acceleration.mul(-0.9 / dt);
       } else {
+        dir = this.direction.copy();
         if (len > 1.0) {
-          this.direction.normalize();
+          dir.normalize();
           len = 1.0;
         }
-        return this.model.acceleration = this.direction.mulCpy(this.model.maxAcc);
+        return this.model.acceleration.set(dir.mul(this.model.maxAcc));
       }
     };
 

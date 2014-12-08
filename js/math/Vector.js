@@ -26,8 +26,13 @@
       if (x == null) {
         x = 0;
       }
-      this.x = x;
-      return this.y = y != null ? y : x;
+      if (x instanceof Vector) {
+        this.x = x.x;
+        return this.y = y.x;
+      } else {
+        this.x = x;
+        return this.y = y != null ? y : x;
+      }
     };
 
     Vector.prototype.length = function() {
