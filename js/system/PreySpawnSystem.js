@@ -32,7 +32,7 @@
       a.maxSpeed /= 2.0;
       r = a.size * Constants.TEX_UNIT;
       a.setPosition(new Vector(MathUtil.randInt(r, Screen.width / Constants.UNIT - r), MathUtil.randInt(r, Screen.height / Constants.UNIT - r)));
-      return new ShyAnimalController(this.game.playerController.model, a);
+      return new ShyAnimalController(this.game, a);
     };
 
     PreySpawnSystem.prototype.spawnPrey = function() {

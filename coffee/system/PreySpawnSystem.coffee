@@ -24,11 +24,10 @@ class @PreySpawnSystem extends System
       MathUtil.randInt r, Screen.height/Constants.UNIT - r
     ))
 
-    return new ShyAnimalController(
-      @game.playerController.model,
-      a
-    )
+    return new ShyAnimalController @game, a
 
+
+    
   spawnPrey: =>
     console.log 'Spawning prey'
     prey = @getPrey()
