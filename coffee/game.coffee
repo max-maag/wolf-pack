@@ -1,12 +1,6 @@
 class Game
-  starve: =>
-    @dead = true
-    console.log 'You starved'
-
   update: =>
     dt = (Date.now() - @lastFrame)/1000
-
-    #console.log "dt: #{dt}"
 
     for animal in @animals
       animal.think(dt)
@@ -37,8 +31,10 @@ class Game
         a.position.y = Screen.height/Constants.UNIT - r
         a.velocity.y = 0
 
-      #if a instanceof Hunter
-        #a.setSize a.size - ds.sub(a.position).length() * a.energyPerUnit
+      if a instanceof Hunter
+        a.setSize a.size - ds.sub(a.position).length() * a.energyPerUnit
+        if a.size < 0.05
+          animal.die('starvation')
 
       a.sprite.position.set a.position
       a.sprite.position.mul Constants.UNIT
@@ -47,8 +43,6 @@ class Game
       unless v == 0
         a.sprite.rotation =
           Math.atan2(a.velocity.y/v, a.velocity.x/v) + Math.PI/2
-
-      #console.log "v.x: #{a.velocity.x}, |v|: #{v}, r: #{a.sprite.rotation}"
 
     for system in @systems
       system.tick()
@@ -64,11 +58,16 @@ class Game
       @stillRendering = false
 
 
+  onDeath: =>
+    console.log "You died of #{@playerController.model.reasonOfDeath}"
+
 
   step: =>
     @update()
     @render()
-    unless @dead
+    if @playerController.model.dead
+      @onDeath()
+    else
       requestAnimFrame @step
 
 

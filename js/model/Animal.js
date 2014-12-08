@@ -20,6 +20,7 @@
       this.sprite.position = this.position.mulCpy(Constants.UNIT);
       this.sprite.scale = new Vector(this.size * Constants.TEX_SCALE, this.size * Constants.TEX_SCALE);
       this.sprite.anchor = new Vector(0.5, 0.5);
+      this.dead = false;
     }
 
     Animal.prototype.setSize = function(size) {

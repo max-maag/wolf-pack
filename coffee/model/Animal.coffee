@@ -17,6 +17,7 @@ class @Animal
       @size * Constants.TEX_SCALE
     )
     @sprite.anchor = new Vector 0.5, 0.5
+    @dead = false
 
   setSize: (size) =>
     @size = size

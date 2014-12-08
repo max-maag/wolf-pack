@@ -25,11 +25,12 @@
       }
     };
 
-    function ShyAnimalController(playerModel, model) {
-      this.playerModel = playerModel;
+    function ShyAnimalController(game, model) {
+      this.game = game;
       this.think = __bind(this.think, this);
       this.calcNextTarget = __bind(this.calcNextTarget, this);
       ShyAnimalController.__super__.constructor.call(this, model);
+      this.playerModel = this.game.playerController.model;
       this.calcNextTarget();
     }
 

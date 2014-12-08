@@ -3,14 +3,19 @@
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
   this.AnimalController = (function() {
-    function AnimalController(model) {
+    function AnimalController(game, model) {
+      this.game = game;
       this.model = model;
+      this.die = __bind(this.die, this);
       this.think = __bind(this.think, this);
       this.direction = new Vector(0.0, 0.0);
     }
 
     AnimalController.prototype.think = function(dt) {
       var dir, len;
+      if (this.model.dead) {
+        return;
+      }
       len = this.direction.length();
       dir = this.direction.clone();
       if (len > 1.0) {
@@ -20,6 +25,12 @@
       this.model.acceleration.set(dir.mul(this.model.maxAcc));
       this.model.acceleration.x -= Constants.STOP_FORCE * this.model.velocity.x / dt;
       return this.model.acceleration.y -= Constants.STOP_FORCE * this.model.velocity.y / dt;
+    };
+
+    AnimalController.prototype.die = function(reasonOfDeath) {
+      this.reasonOfDeath = reasonOfDeath;
+      this.model.dead = true;
+      return this.model.sprite.tint = 0x3e3e3e;
     };
 
     return AnimalController;

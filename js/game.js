@@ -7,15 +7,10 @@
     function Game() {
       this.init = __bind(this.init, this);
       this.step = __bind(this.step, this);
+      this.onDeath = __bind(this.onDeath, this);
       this.render = __bind(this.render, this);
       this.update = __bind(this.update, this);
-      this.starve = __bind(this.starve, this);
     }
-
-    Game.prototype.starve = function() {
-      this.dead = true;
-      return console.log('You starved');
-    };
 
     Game.prototype.update = function() {
       var a, animal, ds, dt, r, system, v, _i, _j, _k, _len, _len1, _len2, _ref, _ref1, _ref2;
@@ -50,6 +45,12 @@
           a.position.y = Screen.height / Constants.UNIT - r;
           a.velocity.y = 0;
         }
+        if (a instanceof Hunter) {
+          a.setSize(a.size - ds.sub(a.position).length() * a.energyPerUnit);
+          if (a.size < 0.05) {
+            animal.die('starvation');
+          }
+        }
         a.sprite.position.set(a.position);
         a.sprite.position.mul(Constants.UNIT);
         v = a.velocity.length();
@@ -73,10 +74,16 @@
       }
     };
 
+    Game.prototype.onDeath = function() {
+      return console.log("You died of " + this.playerController.model.reasonOfDeath);
+    };
+
     Game.prototype.step = function() {
       this.update();
       this.render();
-      if (!this.dead) {
+      if (this.playerController.model.dead) {
+        return this.onDeath();
+      } else {
         return requestAnimFrame(this.step);
       }
     };
