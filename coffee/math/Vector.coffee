@@ -44,7 +44,7 @@ class @Vector
       @x -= val
       @y -= val
 
-      return this
+    return this
 
   subCpy: (val) =>
     @clone().sub val

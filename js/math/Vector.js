@@ -69,12 +69,12 @@
     Vector.prototype.sub = function(val) {
       if (val instanceof Vector) {
         this.x -= val.x;
-        return this.y -= val.y;
+        this.y -= val.y;
       } else {
         this.x -= val;
         this.y -= val;
-        return this;
       }
+      return this;
     };
 
     Vector.prototype.subCpy = function(val) {
