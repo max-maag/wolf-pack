@@ -1,32 +1,4 @@
-window.onload = ->
-  stage = new PIXI.Stage 0xffffff
-  renderer = PIXI.autoDetectRenderer Screen.width, Screen.height
-
-  loader = new PIXI.AssetLoader ['img/animalTex.png']
-
-  #gameContainer = new PIXI.SpriteBatch()
-  #stage.addChild gameContainer
-
-  document.body.appendChild renderer.view
-
-  stillRendering = false
-  lastFrame = Date.now()
-
-  playerSprite = PIXI.Sprite.fromImage 'img/animalTex.png'
-  playerSprite.tint = 0xcccccc
-  #playerSprite.scale = new Vector TEX_SCALE, TEX_SCALE
-
-  stage.addChild playerSprite
-
-  playerController = new PlayerController(new Animal playerSprite)
-  playerController.model.setSize 0.5
-  
-  document.addEventListener "keydown", playerController.handleInput
-  document.addEventListener "keyup", playerController.handleInput
-
-  animals = [playerController]
-
-
+class Game
   update = ->
     dt = (Date.now() - lastFrame)/1000
 
@@ -38,14 +10,10 @@ window.onload = ->
     for animal in animals
       a = animal.model
 
-      #console.log "a: #{a.acceleration}"
-
       a.velocity.add(a.acceleration.mulCpy dt)
 
       if a.velocity.length() > a.maxSpeed
         a.velocity.normalize().mul a.maxSpeed
-
-      #console.log "v: #{a.velocity}"
 
       a.position.add(a.velocity.mulCpy dt)
 
@@ -64,7 +32,6 @@ window.onload = ->
         a.position.y = Screen.height/Constants.UNIT - r
         a.velocity.y = 0
 
-      #console.log "p: #{a.position}"
       a.sprite.position.set a.position
       a.sprite.position.mul Constants.UNIT
 
@@ -78,21 +45,54 @@ window.onload = ->
     lastFrame += dt * 1000
 
 
-  render = ->
-    if not stillRendering
-      stillRendering = true
-      renderer.render stage
-      stillRendering = false
+
+  render = =>
+    unless @stillRendering
+      @stillRendering = true
+      @renderer.render stage
+      @stillRendering = false
+
 
 
   step = ->
-    update()
-    render()
+    @update()
+    @render()
     requestAnimFrame step
 
 
-  loader.onComplete = ->
-    step()
+
+  constructor: ->
+    @stage = new PIXI.Stage 0xffffff
+    @renderer = PIXI.autoDetectRenderer Screen.width, Screen.height
+
+    @loader = new PIXI.AssetLoader ['img/animalTex.png']
+
+    #gameContainer = new PIXI.SpriteBatch()
+    #stage.addChild gameContainer
+
+    document.body.appendChild renderer.view
+
+    @stillRendering = false
+    @lastFrame = Date.now()
+
+    @playerSprite = PIXI.Sprite.fromImage 'img/animalTex.png'
+    @playerSprite.tint = 0xcccccc
+
+    stage.addChild playerSprite
+
+    @playerController = new PlayerController(new Animal playerSprite)
+    @playerController.model.setSize 0.5
+
+    document.addEventListener "keydown", playerController.handleInput
+    document.addEventListener "keyup", playerController.handleInput
+
+    @animals = [playerController]
+
+    loader.onComplete ->
+      requestAnimFrame @step
+
+    loader.load()
 
 
-  loader.load()
+window.onload = ->
+  new Game()

@@ -21,3 +21,8 @@ class @Animal
   setSize: (size) =>
     @size = size
     @sprite.scale.set @size * Constants.TEX_SCALE
+
+  setPosition: (vec) =>
+    @position.set vec
+    @sprite.position.set vec
+    @sprite.position.mul Constants.UNIT

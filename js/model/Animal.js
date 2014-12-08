@@ -14,6 +14,7 @@
       this.orientation = orientation != null ? orientation : 0.0;
       this.attitude = attitude != null ? attitude : 0.0;
       this.size = size != null ? size : 1;
+      this.setPosition = __bind(this.setPosition, this);
       this.setSize = __bind(this.setSize, this);
       this.sprite.position = this.position.mulCpy(Constants.UNIT);
       this.sprite.scale = new Vector(this.size * Constants.TEX_SCALE, this.size * Constants.TEX_SCALE);
@@ -23,6 +24,12 @@
     Animal.prototype.setSize = function(size) {
       this.size = size;
       return this.sprite.scale.set(this.size * Constants.TEX_SCALE);
+    };
+
+    Animal.prototype.setPosition = function(vec) {
+      this.position.set(vec);
+      this.sprite.position.set(vec);
+      return this.sprite.position.mul(Constants.UNIT);
     };
 
     return Animal;
