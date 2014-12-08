@@ -1,13 +1,13 @@
 class Game
-  update = ->
-    dt = (Date.now() - lastFrame)/1000
+  update: =>
+    dt = (Date.now() - @lastFrame)/1000
 
     #console.log "dt: #{dt}"
 
-    for animal in animals
+    for animal in @animals
       animal.think(dt)
 
-    for animal in animals
+    for animal in @animals
       a = animal.model
 
       a.velocity.add(a.acceleration.mulCpy dt)
@@ -42,11 +42,11 @@ class Game
 
       #console.log "v.x: #{a.velocity.x}, |v|: #{v}, r: #{a.sprite.rotation}"
 
-    lastFrame += dt * 1000
+    @lastFrame += dt * 1000
 
 
 
-  render = =>
+  render: =>
     unless @stillRendering
       @stillRendering = true
       @renderer.render stage
@@ -54,7 +54,7 @@ class Game
 
 
 
-  step = ->
+  step: =>
     @update()
     @render()
     requestAnimFrame step
