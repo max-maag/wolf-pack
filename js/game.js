@@ -30,7 +30,7 @@
           a.velocity.normalize().mul(a.maxSpeed);
         }
         a.position.add(a.velocity.mulCpy(dt));
-        r = size * Constants.TEX_RAD;
+        r = a.size * Constants.TEX_RAD;
         if (a.position.x <= r) {
           a.position.x = 0;
           a.velocity.x = 0;
