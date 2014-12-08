@@ -15,6 +15,7 @@ class Game
       if a.velocity.length() > a.maxSpeed
         a.velocity.normalize().mul a.maxSpeed
 
+      ds = a.position.clone()
       a.position.add(a.velocity.mulCpy dt)
 
       r = a.size * Constants.TEX_UNIT/2.0
@@ -31,6 +32,9 @@ class Game
       else if a.position.y + r >= Screen.height/Constants.UNIT
         a.position.y = Screen.height/Constants.UNIT - r
         a.velocity.y = 0
+
+      if a instanceof Hunter
+        a.size -= ds.sub(a.position).length() * a.energyPerUnit
 
       a.sprite.position.set a.position
       a.sprite.position.mul Constants.UNIT
@@ -83,7 +87,7 @@ class Game
 
     @stage.addChild @playerSprite
 
-    @playerController = new PlayerController new Animal(
+    @playerController = new PlayerController new Hunter(
       @playerSprite
       new Vector(Screen.width, Screen.height).mul 1.0/2.0/Constants.UNIT
     )

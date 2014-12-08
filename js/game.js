@@ -12,7 +12,7 @@
     }
 
     Game.prototype.update = function() {
-      var a, animal, dt, r, system, v, _i, _j, _k, _len, _len1, _len2, _ref, _ref1, _ref2;
+      var a, animal, ds, dt, r, system, v, _i, _j, _k, _len, _len1, _len2, _ref, _ref1, _ref2;
       dt = (Date.now() - this.lastFrame) / 1000;
       _ref = this.animals;
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -27,6 +27,7 @@
         if (a.velocity.length() > a.maxSpeed) {
           a.velocity.normalize().mul(a.maxSpeed);
         }
+        ds = a.position.clone();
         a.position.add(a.velocity.mulCpy(dt));
         r = a.size * Constants.TEX_UNIT / 2.0;
         if (a.position.x - r <= 0) {
@@ -42,6 +43,9 @@
         } else if (a.position.y + r >= Screen.height / Constants.UNIT) {
           a.position.y = Screen.height / Constants.UNIT - r;
           a.velocity.y = 0;
+        }
+        if (a instanceof Hunter) {
+          a.size -= ds.sub(a.position).length() * a.energyPerUnit;
         }
         a.sprite.position.set(a.position);
         a.sprite.position.mul(Constants.UNIT);
@@ -82,7 +86,7 @@
       this.playerSprite = PIXI.Sprite.fromImage('img/animalTex.png');
       this.playerSprite.tint = 0xcccccc;
       this.stage.addChild(this.playerSprite);
-      this.playerController = new PlayerController(new Animal(this.playerSprite, new Vector(Screen.width, Screen.height).mul(1.0 / 2.0 / Constants.UNIT)));
+      this.playerController = new PlayerController(new Hunter(this.playerSprite, new Vector(Screen.width, Screen.height).mul(1.0 / 2.0 / Constants.UNIT)));
       this.playerController.model.setSize(0.5);
       document.addEventListener("keydown", this.playerController.handleInput);
       document.addEventListener("keyup", this.playerController.handleInput);
