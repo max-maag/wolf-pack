@@ -20,16 +20,18 @@
       _ref = this.game.animals;
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         a = _ref[_i];
-        if (target == null) {
-          target = a;
-          d = a.model.position.subCpy(this.model.position);
-          dist = d.length();
-        } else {
-          d.set(a.model.position);
-          d.sub(this.model.position);
-          if (d.length() < dist) {
+        if (a !== this) {
+          if (target == null) {
             target = a;
+            d = a.model.position.subCpy(this.model.position);
             dist = d.length();
+          } else {
+            d.set(a.model.position);
+            d.sub(this.model.position);
+            if (d.length() < dist) {
+              target = a;
+              dist = d.length();
+            }
           }
         }
       }
