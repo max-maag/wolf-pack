@@ -25,14 +25,26 @@
     };
 
     PreySpawnSystem.prototype.getPrey = function() {
-      var a, r;
+      var a, prey, r, typeCount;
       a = new Animal(PIXI.Sprite.fromImage('img/animalTex.png'));
-      a.sprite.tint = 0x79cc26;
-      a.setSize(0.3);
-      a.maxSpeed /= 2.0;
+      typeCount = 4;
+      switch (Math.floor(MathUtil.randInt(0, typeCount))) {
+        case 0:
+        case 1:
+        case 2:
+          a.sprite.tint = 0x79cc26;
+          a.setSize(0.3);
+          a.maxSpeed /= 2.0;
+          prey = new ShyAnimalController(this.game, a);
+          break;
+        case 3:
+          a.sprite.tint = 0xeecccc;
+          a.setSize(0.5);
+          prey = new StupidHunter(this.game, a);
+      }
       r = a.size * Constants.TEX_UNIT;
       a.setPosition(new Vector(MathUtil.randInt(r, Screen.width / Constants.UNIT - r), MathUtil.randInt(r, Screen.height / Constants.UNIT - r)));
-      return new ShyAnimalController(this.game, a);
+      return prey;
     };
 
     PreySpawnSystem.prototype.spawnPrey = function() {

@@ -29,6 +29,6 @@
 
     return PlayerController;
 
-  })(AnimalController);
+  })(HunterController);
 
 }).call(this);

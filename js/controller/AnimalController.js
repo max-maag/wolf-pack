@@ -6,16 +6,15 @@
     function AnimalController(game, model) {
       this.game = game;
       this.model = model;
+      this.takeDamage = __bind(this.takeDamage, this);
       this.die = __bind(this.die, this);
       this.think = __bind(this.think, this);
+      this.calcAcc = __bind(this.calcAcc, this);
       this.direction = new Vector(0.0, 0.0);
     }
 
-    AnimalController.prototype.think = function(dt) {
+    AnimalController.prototype.calcAcc = function(dt) {
       var dir, len;
-      if (this.model.dead) {
-        return;
-      }
       len = this.direction.length();
       dir = this.direction.clone();
       if (len > 1.0) {
@@ -27,11 +26,27 @@
       return this.model.acceleration.y -= Constants.STOP_FORCE * this.model.velocity.y / dt;
     };
 
+    AnimalController.prototype.think = function(dt) {
+      if (this.model.dead) {
+        return;
+      }
+      return this.calcAcc(dt);
+    };
+
     AnimalController.prototype.die = function(reasonOfDeath) {
       this.model.reasonOfDeath = reasonOfDeath;
       this.model.dead = true;
       return this.model.sprite.tint = 0x3e3e3e;
     };
+
+    AnimalController.prototype.takeDamage = function(amount, source) {
+      this.model.hp -= amount;
+      if (this.model.hp < 0) {
+        return this.die("taking " + amount + " damage by " + source);
+      }
+    };
+
+    AnimalController.prototype.onCollide = function(other) {};
 
     return AnimalController;
 

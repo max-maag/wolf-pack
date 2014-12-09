@@ -33,7 +33,7 @@ class Game
 
       if a instanceof Hunter
         a.setSize a.size - ds.sub(a.position).length() * a.energyPerUnit
-        if a.size < 0.2
+        if a.size < Constands.SMALLEST_SIZE
           animal.die('starvation')
 
       a.sprite.position.set a.position

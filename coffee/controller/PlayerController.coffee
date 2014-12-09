@@ -1,4 +1,4 @@
-class @PlayerController extends AnimalController
+class @PlayerController extends HunterController
   handleInput: (e) =>
     if (e.type is "keyup") or ((e.type is "keydown") and not e.repeat)
       #console.log e

@@ -1,2 +1,0 @@
-class @AnimalView
-  constructor: (parent) ->

@@ -2,15 +2,15 @@ class @Animal
   constructor: (
     @sprite
     @position = new Vector 0.0, 0.0
-    @velocity = new Vector 0.0, 0.0
-    @acceleration = new Vector 0.0, 0.0
+    @hp = 10
     @maxSpeed = 20
     @maxAcc = 200
-    @maxTurnSpeed = 1.0
     @orientation = 0.0
     @attitude = 0.0
     @size = 1
     ) ->
+    @velocity = new Vector 0.0, 0.0
+    @acceleration = new Vector 0.0, 0.0
     @sprite.position = @position.mulCpy(Constants.UNIT)
     @sprite.scale = new Vector(
       @size * Constants.TEX_SCALE,

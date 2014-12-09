@@ -13,6 +13,8 @@
 
     Constants.STOP_FORCE = 0.1;
 
+    Constants.SMALLEST_SIZE = 0.2;
+
     return Constants;
 
   })();

@@ -11,10 +11,19 @@ class @PreySpawnSystem extends System
     a = new Animal PIXI.Sprite.fromImage 'img/animalTex.png'
 
     # Begin prey type specific code
+    typeCount = 4
 
-    a.sprite.tint = 0x79cc26
-    a.setSize 0.3
-    a.maxSpeed /= 2.0
+    switch Math.floor MathUtil.randInt 0, typeCount
+      when 0, 1, 2
+        a.sprite.tint = 0x79cc26
+        a.setSize 0.3
+        a.maxSpeed /= 2.0
+        prey = new ShyAnimalController @game, a
+
+      when 3
+        a.sprite.tint = 0xeecccc
+        a.setSize 0.5
+        prey = new StupidHunter @game, a
 
     # End prey type specific code
 
@@ -24,10 +33,10 @@ class @PreySpawnSystem extends System
       MathUtil.randInt r, Screen.height/Constants.UNIT - r
     ))
 
-    return new ShyAnimalController @game, a
+    return prey
 
 
-    
+
   spawnPrey: =>
     console.log 'Spawning prey'
     prey = @getPrey()
