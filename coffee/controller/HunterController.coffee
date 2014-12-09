@@ -12,5 +12,5 @@ class @HunterController extends AnimalController
         amount = Math.min 0.1, other.model.size - Constants.SMALLEST_SIZE
         other.model.setSize other.model.size - amount
         @eat amount
-    else
+    else unless @model.dead
       other.takeDamage @damage, this

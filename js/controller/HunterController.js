@@ -29,7 +29,7 @@
           other.model.setSize(other.model.size - amount);
           return this.eat(amount);
         }
-      } else {
+      } else if (!this.model.dead) {
         return other.takeDamage(this.damage, this);
       }
     };
