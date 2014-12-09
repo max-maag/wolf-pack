@@ -33,7 +33,8 @@
           }
         }
       }
-      return this.direction.set(d);
+      this.direction.set(d);
+      return this.calcAcc();
     };
 
     return StupidHunter;
