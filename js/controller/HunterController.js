@@ -30,7 +30,7 @@
           return this.eat(amount);
         }
       } else {
-        return other.takeDamage(this.damage(this));
+        return other.takeDamage(this.damage, this);
       }
     };
 

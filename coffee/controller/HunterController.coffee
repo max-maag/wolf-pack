@@ -13,4 +13,4 @@ class @HunterController extends AnimalController
         other.model.setSize other.model.size - amount
         @eat amount
     else
-      other.takeDamage @damage this
+      other.takeDamage @damage, this
