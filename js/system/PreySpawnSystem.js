@@ -33,6 +33,8 @@
         case 1:
         case 2:
           a = new Animal(sprite);
+          r = a.size * Constants.TEX_UNIT;
+          a.setPosition(new Vector(MathUtil.randInt(r, Screen.width / Constants.UNIT - r), MathUtil.randInt(r, Screen.height / Constants.UNIT - r)));
           a.sprite.tint = 0x79cc26;
           a.setSize(0.3);
           a.maxSpeed /= 2.0;
@@ -40,12 +42,12 @@
           break;
         case 3:
           a = new Hunter(sprite);
+          r = a.size * Constants.TEX_UNIT;
+          a.setPosition(new Vector(MathUtil.randInt(r, Screen.width / Constants.UNIT - r), MathUtil.randInt(r, Screen.height / Constants.UNIT - r)));
           a.sprite.tint = 0xeecccc;
           a.setSize(0.5);
           prey = new StupidHunter(this.game, a);
       }
-      r = a.size * Constants.TEX_UNIT;
-      a.setPosition(new Vector(MathUtil.randInt(r, Screen.width / Constants.UNIT - r), MathUtil.randInt(r, Screen.height / Constants.UNIT - r)));
       return prey;
     };
 

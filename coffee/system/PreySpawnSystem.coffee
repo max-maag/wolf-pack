@@ -16,6 +16,12 @@ class @PreySpawnSystem extends System
     switch Math.floor MathUtil.randInt 0, typeCount
       when 0, 1, 2
         a = new Animal sprite
+
+        r = a.size * Constants.TEX_UNIT
+        a.setPosition(new Vector(
+          MathUtil.randInt r, Screen.width/Constants.UNIT - r
+          MathUtil.randInt r, Screen.height/Constants.UNIT - r
+        ))
         a.sprite.tint = 0x79cc26
         a.setSize 0.3
         a.maxSpeed /= 2.0
@@ -23,17 +29,18 @@ class @PreySpawnSystem extends System
 
       when 3
         a = new Hunter sprite
+
+
+        r = a.size * Constants.TEX_UNIT
+        a.setPosition(new Vector(
+          MathUtil.randInt r, Screen.width/Constants.UNIT - r
+          MathUtil.randInt r, Screen.height/Constants.UNIT - r
+        ))
         a.sprite.tint = 0xeecccc
         a.setSize 0.5
         prey = new StupidHunter @game, a
 
     # End prey type specific code
-
-    r = a.size * Constants.TEX_UNIT
-    a.setPosition(new Vector(
-      MathUtil.randInt r, Screen.width/Constants.UNIT - r
-      MathUtil.randInt r, Screen.height/Constants.UNIT - r
-    ))
 
     return prey
 
