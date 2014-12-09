@@ -36,7 +36,9 @@
     AnimalController.prototype.die = function(reasonOfDeath) {
       this.model.reasonOfDeath = reasonOfDeath;
       this.model.dead = true;
-      return this.model.sprite.tint = 0x3e3e3e;
+      this.model.sprite.tint = 0x3e3e3e;
+      this.model.velocity.set(0);
+      return this.model.acceleration.set(0);
     };
 
     AnimalController.prototype.takeDamage = function(amount, source) {

@@ -15,7 +15,7 @@ class @AnimalController
     @model.acceleration.x -= Constants.STOP_FORCE * @model.velocity.x / dt
     @model.acceleration.y -= Constants.STOP_FORCE * @model.velocity.y / dt
 
-      
+
   think: (dt) =>
     if @model.dead
       return
@@ -26,6 +26,8 @@ class @AnimalController
     @model.reasonOfDeath = reasonOfDeath
     @model.dead = true
     @model.sprite.tint = 0x3e3e3e
+    @model.velocity.set 0
+    @model.acceleration.set 0
 
   takeDamage: (amount, source) =>
     @model.hp -= amount
