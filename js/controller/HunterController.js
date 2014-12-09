@@ -22,9 +22,12 @@
     };
 
     HunterController.prototype.onCollide = function(other) {
+      var amount;
       if (other.model.dead) {
         if (other.model.size > Constants.SMALLEST_SIZE) {
-          return this.eat(Math.min(0.1, other.model.size - Constants.SMALLEST_SIZE));
+          amount = Math.min(0.1, other.model.size - Constants.SMALLEST_SIZE);
+          other.model.setSize(other.model.size - amount);
+          return this.eat(amount);
         }
       } else {
         return other.takeDamage(this.damage);

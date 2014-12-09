@@ -9,6 +9,8 @@ class @HunterController extends AnimalController
   onCollide: (other) =>
     if other.model.dead
       if other.model.size > Constants.SMALLEST_SIZE
-        @eat Math.min 0.1, other.model.size - Constants.SMALLEST_SIZE
+        amount = Math.min 0.1, other.model.size - Constants.SMALLEST_SIZE
+        other.model.setSize other.model.size - amount
+        @eat amount
     else
       other.takeDamage @damage
