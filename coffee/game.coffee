@@ -2,6 +2,19 @@ class Game
   update: =>
     dt = (Date.now() - @lastFrame)/1000
 
+    # collision detection
+    l = @animals.length
+    for i in [0...l]
+      for j in [i...l]
+        m1 = @animals[i].model
+        m2 = @animals[j].model
+        if (
+          m1.getRadius() + m2.getRadius() >=
+          m1.position.subCpy(m2.position).length()
+          )
+          @animals[i].onCollide(@animals[j])
+          @animals[j].onCollide(@animals[i])
+
     for animal in @animals
       animal.think(dt)
 

@@ -13,16 +13,27 @@
     }
 
     Game.prototype.update = function() {
-      var a, animal, ds, dt, r, system, v, _i, _j, _k, _len, _len1, _len2, _ref, _ref1, _ref2;
+      var a, animal, ds, dt, i, j, l, m1, m2, r, system, v, _i, _j, _k, _l, _len, _len1, _len2, _m, _ref, _ref1, _ref2;
       dt = (Date.now() - this.lastFrame) / 1000;
+      l = this.animals.length;
+      for (i = _i = 0; 0 <= l ? _i < l : _i > l; i = 0 <= l ? ++_i : --_i) {
+        for (j = _j = i; i <= l ? _j < l : _j > l; j = i <= l ? ++_j : --_j) {
+          m1 = this.animals[i].model;
+          m2 = this.animals[j].model;
+          if (m1.getRadius() + m2.getRadius() >= m1.position.subCpy(m2.position).length()) {
+            this.animals[i].onCollide(this.animals[j]);
+            this.animals[j].onCollide(this.animals[i]);
+          }
+        }
+      }
       _ref = this.animals;
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        animal = _ref[_i];
+      for (_k = 0, _len = _ref.length; _k < _len; _k++) {
+        animal = _ref[_k];
         animal.think(dt);
       }
       _ref1 = this.animals;
-      for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
-        animal = _ref1[_j];
+      for (_l = 0, _len1 = _ref1.length; _l < _len1; _l++) {
+        animal = _ref1[_l];
         a = animal.model;
         a.velocity.add(a.acceleration.mulCpy(dt));
         if (a.velocity.length() > a.maxSpeed) {
@@ -59,8 +70,8 @@
         }
       }
       _ref2 = this.systems;
-      for (_k = 0, _len2 = _ref2.length; _k < _len2; _k++) {
-        system = _ref2[_k];
+      for (_m = 0, _len2 = _ref2.length; _m < _len2; _m++) {
+        system = _ref2[_m];
         system.tick();
       }
       return this.lastFrame += dt * 1000;
