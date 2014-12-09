@@ -5,7 +5,7 @@ class Game
     # collision detection
     l = @animals.length
     for i in [0...l]
-      for j in [i...l]
+      for j in [i+1...l]
         m1 = @animals[i].model
         m2 = @animals[j].model
         if (
