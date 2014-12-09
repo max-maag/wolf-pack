@@ -18,4 +18,4 @@ class @StupidHunter extends HunterController
 
 
     @direction.set d
-    @calcAcc()
+    @calcAcc dt

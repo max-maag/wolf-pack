@@ -36,7 +36,7 @@
         }
       }
       this.direction.set(d);
-      return this.calcAcc();
+      return this.calcAcc(dt);
     };
 
     return StupidHunter;
