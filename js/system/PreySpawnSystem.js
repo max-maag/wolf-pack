@@ -25,19 +25,21 @@
     };
 
     PreySpawnSystem.prototype.getPrey = function() {
-      var a, prey, r, typeCount;
-      a = new Animal(PIXI.Sprite.fromImage('img/animalTex.png'));
+      var a, prey, r, sprite, typeCount;
+      sprite = PIXI.Sprite.fromImage('img/animalTex.png');
       typeCount = 4;
       switch (Math.floor(MathUtil.randInt(0, typeCount))) {
         case 0:
         case 1:
         case 2:
+          a = new Animal(sprite);
           a.sprite.tint = 0x79cc26;
           a.setSize(0.3);
           a.maxSpeed /= 2.0;
           prey = new ShyAnimalController(this.game, a);
           break;
         case 3:
+          a = new Hunter(sprite);
           a.sprite.tint = 0xeecccc;
           a.setSize(0.5);
           prey = new StupidHunter(this.game, a);

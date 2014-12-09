@@ -75,17 +75,20 @@
     };
 
     Game.prototype.onDeath = function() {
+      this.dead = true;
       return console.log("You died of " + this.playerController.model.reasonOfDeath);
     };
 
     Game.prototype.step = function() {
-      this.update();
-      this.render();
       if (this.playerController.model.dead) {
-        return this.onDeath();
+        if (!this.dead) {
+          this.onDeath();
+        }
       } else {
-        return requestAnimFrame(this.step);
+        this.update();
       }
+      this.render();
+      return requestAnimFrame(this.step);
     };
 
     Game.prototype.init = function() {

@@ -59,16 +59,19 @@ class Game
 
 
   onDeath: =>
+    @dead = true
     console.log "You died of #{@playerController.model.reasonOfDeath}"
 
 
   step: =>
-    @update()
-    @render()
     if @playerController.model.dead
-      @onDeath()
+      unless @dead
+        @onDeath()
     else
-      requestAnimFrame @step
+      @update()
+
+    @render()
+    requestAnimFrame @step
 
 
 

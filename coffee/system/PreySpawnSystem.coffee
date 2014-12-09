@@ -8,19 +8,21 @@ class @PreySpawnSystem extends System
       @nextSpawn = Date.now() + MathUtil.randInt @minDelay, @maxDelay
 
   getPrey: () =>
-    a = new Animal PIXI.Sprite.fromImage 'img/animalTex.png'
+    sprite = PIXI.Sprite.fromImage 'img/animalTex.png'
 
     # Begin prey type specific code
     typeCount = 4
 
     switch Math.floor MathUtil.randInt 0, typeCount
       when 0, 1, 2
+        a = new Animal sprite
         a.sprite.tint = 0x79cc26
         a.setSize 0.3
         a.maxSpeed /= 2.0
         prey = new ShyAnimalController @game, a
 
       when 3
+        a = new Hunter sprite
         a.sprite.tint = 0xeecccc
         a.setSize 0.5
         prey = new StupidHunter @game, a
