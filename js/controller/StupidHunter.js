@@ -20,7 +20,7 @@
       _ref = this.game.animals;
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         a = _ref[_i];
-        if (!(a === this || a.model.dead && a.model.size < Constants.SMALLEST_SIZE)) {
+        if (!(a === this || a.model.size < Constants.SMALLEST_SIZE)) {
           if (target == null) {
             target = a;
             d = a.model.position.subCpy(this.model.position);

@@ -4,8 +4,7 @@ class @StupidHunter extends HunterController
     d = null
     dist = 0
     for a in @game.animals
-      unless a == this or
-      a.model.dead and a.model.size < Constants.SMALLEST_SIZE
+      unless a == this or a.model.size < Constants.SMALLEST_SIZE
         if not target?
           target = a
           d = a.model.position.subCpy @model.position
