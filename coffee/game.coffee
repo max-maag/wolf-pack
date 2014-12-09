@@ -16,7 +16,8 @@ class Game
           @animals[j].onCollide(@animals[i])
 
     for animal in @animals
-      animal.think(dt)
+      unless animal.model.dead
+        animal.think(dt)
 
     for animal in @animals
       a = animal.model

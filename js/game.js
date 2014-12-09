@@ -29,7 +29,9 @@
       _ref1 = this.animals;
       for (_k = 0, _len = _ref1.length; _k < _len; _k++) {
         animal = _ref1[_k];
-        animal.think(dt);
+        if (!animal.model.dead) {
+          animal.think(dt);
+        }
       }
       _ref2 = this.animals;
       for (_l = 0, _len1 = _ref2.length; _l < _len1; _l++) {
