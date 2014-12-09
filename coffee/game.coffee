@@ -113,6 +113,7 @@ class Game
       new Vector(Screen.width, Screen.height).mul 1.0/2.0/Constants.UNIT
     )
     @playerController.model.setSize 0.5
+    @playerController.model.hp = 100
 
     document.addEventListener "keydown", @playerController.handleInput
     document.addEventListener "keyup", @playerController.handleInput

@@ -115,6 +115,7 @@
       this.stage.addChild(this.playerSprite);
       this.playerController = new PlayerController(this, new Hunter(this.playerSprite, new Vector(Screen.width, Screen.height).mul(1.0 / 2.0 / Constants.UNIT)));
       this.playerController.model.setSize(0.5);
+      this.playerController.model.hp = 100;
       document.addEventListener("keydown", this.playerController.handleInput);
       document.addEventListener("keyup", this.playerController.handleInput);
       this.animals = [this.playerController];
