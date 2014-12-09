@@ -17,7 +17,7 @@ class Game
 
     for animal in @animals
       unless animal.model.dead
-        animal.think(dt)
+        animal.think dt
 
     for animal in @animals
       a = animal.model
