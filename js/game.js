@@ -20,7 +20,7 @@
         for (j = _j = _ref = i + 1; _ref <= l ? _j < l : _j > l; j = _ref <= l ? ++_j : --_j) {
           m1 = this.animals[i].model;
           m2 = this.animals[j].model;
-          if (m1.getRadius() + m2.getRadius() >= m1.position.subCpy(m2.position).length()) {
+          if (m1.getRadius() + m2.getRadius() >= 2 * m1.position.subCpy(m2.position).length()) {
             this.animals[i].onCollide(this.animals[j]);
             this.animals[j].onCollide(this.animals[i]);
           }

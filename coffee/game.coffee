@@ -10,7 +10,7 @@ class Game
         m2 = @animals[j].model
         if (
           m1.getRadius() + m2.getRadius() >=
-          m1.position.subCpy(m2.position).length()
+          2*m1.position.subCpy(m2.position).length()
           )
           @animals[i].onCollide(@animals[j])
           @animals[j].onCollide(@animals[i])
